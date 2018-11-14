@@ -53,18 +53,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\lightscript.cs" />
      <Compile Include="Assets\Scripts\DollyZoom.cs" />
+     <None Include="Assets\Sci-Fi Styled Modular Pack\Readme.txt" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/rdevito/Documents/Unity Projects/Hallway/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/rdevito/Documents/CIACapstone/Hallway/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/rdevito/Documents/Unity Projects/Hallway/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/rdevito/Documents/CIACapstone/Hallway/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/rdevito/Documents/Unity Projects/Hallway/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/rdevito/Documents/CIACapstone/Hallway/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/rdevito/Documents/Unity Projects/Hallway/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/rdevito/Documents/CIACapstone/Hallway/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/Program Files/Unity Hub/2018.2.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

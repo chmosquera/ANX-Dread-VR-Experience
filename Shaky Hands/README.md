@@ -16,10 +16,13 @@ it's important that we don't touch the master branch until our piece is complete
 ![medium](./docs/assets/git_clone.png)
 
 # How to add & commit files
-git add <filename> or 
-git add . to add all in the directory
-git status to check what files have been added
-git commit -m "Commit message"
+~git add <filename>~ or ~git add .~ to add all in the directory
+~git status~ to review what files have been added
+~git commit -m "Commit message"~ to stage the changes
+
+The final step is to push the changes to your branch
+~git push origin <branch name>~
+	
 
 # Pushing Changes
 All changes should be pushed to the individual's own branch. (This avoids merging issues.)

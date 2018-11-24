@@ -22,6 +22,7 @@ namespace SH
                 Debug.LogError("Door.cs cannot find object 'door'");
 
             animator = doorObj.GetComponent<Animator>();
+            doorstate = DoorState.broken;
 
         }
 

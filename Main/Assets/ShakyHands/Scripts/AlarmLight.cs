@@ -26,7 +26,6 @@ public class AlarmLight : MonoBehaviour {
             if (reachedIMax) myLight.intensity -= iStep;
             else myLight.intensity += iStep;
             
-
         }
 	}
 }

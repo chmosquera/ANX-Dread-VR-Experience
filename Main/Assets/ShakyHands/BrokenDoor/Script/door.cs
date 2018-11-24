@@ -1,44 +1,71 @@
 using UnityEngine;
 using System.Collections;
 
-enum DoorState { Broken, Fixed};
+namespace SH
+{
 
-public class door : MonoBehaviour {
-	Transform doorObj;
-    Animation doorAnim;
+    public enum DoorState { broken, closed, opening, closing }
 
-    bool isBroken = true;
-
-    void Start()
+    public class door : MonoBehaviour
     {
-        doorObj = transform.Find("door");
-        if (doorObj == null)
-            Debug.LogError("Door.cs cannot find object 'door'");
-        doorAnim = doorObj.GetComponent<Animation>();
 
-        if (doorAnim == null)
-            Debug.LogError("Door.cs cannot find Animation component of 'door'");
-        else
-            print("we good");
-        isBroken = true;
+        Transform doorObj;
+        Animation doorAnim;
+        Animator animator;
 
-    }
+        public DoorState doorstate = DoorState.broken;
 
-    void Update()
-    {
-        if (isBroken)
+        void Start()
         {
-            doorAnim.Play("broken");
+            doorObj = transform.Find("door");
+            if (doorObj == null)
+                Debug.LogError("Door.cs cannot find object 'door'");
+
+            animator = doorObj.GetComponent<Animator>();
+
         }
-    }
 
-    void OnTriggerEnter ( Collider obj  ){
-        if (isBroken) return;
-        doorAnim.Play("open");
-    }
+        void Update()
+        {
+            print("Doorstate: " + doorstate.ToString());
+            switch (doorstate) {
+                case DoorState.broken:
+                    animator.SetBool("isBroken", true);
+                    animator.SetBool("isOpening", false);
+                    animator.SetBool("isClosing", false);
+                    break;
+                case DoorState.opening:
+                    animator.SetBool("isBroken", false);
+                    animator.SetBool("isOpening", true);
+                    animator.SetBool("isClosing", false);
+                    break;
+                case DoorState.closing:
+                    animator.SetBool("isBroken", false);
+                    animator.SetBool("isOpening", false);
+                    animator.SetBool("isClosing", true);
+                    break;
+                default:
+                    animator.SetBool("isBroken", false);
+                    animator.SetBool("isOpening", false);
+                    animator.SetBool("isClosing", false);
+                    break;
+            }
 
-    void OnTriggerExit ( Collider obj  ){
-        if (isBroken) return;
-        doorAnim.Play("close");
+        }
+
+        void OnTriggerEnter(Collider obj)
+        {
+            if (obj.gameObject.layer == LayerMask.NameToLayer("SH_IgnoreColliders")) return;    // ignore colliders within this layer
+            doorstate = DoorState.opening;
+            print("Opening door");
+        }
+
+
+        void OnTriggerExit(Collider obj)
+        {
+            if (obj.gameObject.layer == LayerMask.NameToLayer("SH_IgnoreColliders")) return;    // ignore colliders within this layer
+            doorstate = DoorState.closing;
+            print("Closing door");
+        }
     }
 }

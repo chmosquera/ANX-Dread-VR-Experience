@@ -9,7 +9,6 @@ namespace SH
     public class door : MonoBehaviour
     {
 
-        Transform doorObj;
         Animation doorAnim;
         Animator animator;
 
@@ -17,18 +16,15 @@ namespace SH
 
         void Start()
         {
-            doorObj = transform.Find("door");
-            if (doorObj == null)
-                Debug.LogError("Door.cs cannot find object 'door'");
 
-            animator = doorObj.GetComponent<Animator>();
+            animator = this.GetComponent<Animator>();
             doorstate = DoorState.broken;
 
         }
 
         void Update()
         {
-            print("Doorstate: " + doorstate.ToString());
+            //print("Doorstate: " + doorstate.ToString());
             switch (doorstate) {
                 case DoorState.broken:
                     animator.SetBool("isBroken", true);
@@ -56,7 +52,8 @@ namespace SH
 
         void OnTriggerEnter(Collider obj)
         {
-            if (obj.gameObject.layer == LayerMask.NameToLayer("SH_IgnoreColliders")) return;    // ignore colliders within this layer
+            if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
+            if (doorstate == DoorState.broken) return;
             doorstate = DoorState.opening;
             print("Opening door");
         }
@@ -64,7 +61,8 @@ namespace SH
 
         void OnTriggerExit(Collider obj)
         {
-            if (obj.gameObject.layer == LayerMask.NameToLayer("SH_IgnoreColliders")) return;    // ignore colliders within this layer
+            if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
+            if (doorstate == DoorState.broken) return;
             doorstate = DoorState.closing;
             print("Closing door");
         }

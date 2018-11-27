@@ -33,7 +33,7 @@ namespace SH
                 Destroy(other.transform.GetComponent<Rigidbody>());
 
                 // Open door
-                door.GetComponent<door>().doorstate = DoorState.closed;
+                door.GetComponentInChildren<door>().doorstate = DoorState.closed;
             }
         }
 

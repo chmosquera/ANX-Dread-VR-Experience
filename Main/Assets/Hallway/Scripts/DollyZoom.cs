@@ -10,6 +10,12 @@ public class DollyZoom : MonoBehaviour
     private Camera camera;
     private float initialFrustumHeight;
 
+    [SerializeField] private float speedH = 5.0f;
+    [SerializeField] private float speedV = 5.0f;
+
+    private float yaw = 0.0f;
+    private float pitch = 0.0f;
+
     private void Awake()
     {
         Initialize();
@@ -21,6 +27,13 @@ public class DollyZoom : MonoBehaviour
 
         float currentDistance = Vector3.Distance(transform.position, target.position);
         camera.fieldOfView = ComputeFieldOfView(initialFrustumHeight, currentDistance);
+
+        transform.Translate(Input.GetAxis("Horizontal") * Vector3.right * Time.deltaTime * dollySpeed);
+
+        yaw += speedH * Input.GetAxis("Mouse X");
+        pitch -= speedV * Input.GetAxis("Mouse Y");
+
+        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
     }
 
     private void Initialize()

@@ -5,6 +5,9 @@ using UnityEngine;
 public class lightscript : MonoBehaviour {
 
     Light myLight;
+    int wait = 0;
+    int state = 0;
+    int count = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +16,27 @@ public class lightscript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        myLight.intensity += 0.1f;
-	}
+        if (wait <= 0)
+        {
+            myLight.intensity += 0.05f;
+            if (myLight.intensity >= 7.0f && state == 0)
+            {
+                myLight.intensity = 0;
+                wait = 400;
+                state = 1;
+            }
+            if (myLight.intensity >= 3.0f && state == 1)
+            {
+                myLight.intensity = 0;
+                wait = 100;
+                count++;
+                if (count >= 2)
+                {
+                    count = 0;
+                    state = 0;
+                }
+            }
+        }
+        wait--;
+    }
 }

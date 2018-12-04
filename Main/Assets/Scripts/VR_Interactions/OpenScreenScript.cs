@@ -13,9 +13,8 @@ public class OpenScreenScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Controller"))
-        {
+        
             screen.SetActive(true);
-        }
+       
     }
 }

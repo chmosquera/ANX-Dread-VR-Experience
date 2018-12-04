@@ -58,6 +58,8 @@
      <Compile Include="Assets\Hallway\Scripts\Moving.cs" />
      <Compile Include="Assets\Hallway\Scripts\Scene_Changer.cs" />
      <Compile Include="Assets\Hallway\Scripts\TriggerBox.cs" />
+     <Compile Include="Assets\Scripts\FocusSphere.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\VR_Interactions\ControllerGrabObject.cs" />
      <Compile Include="Assets\Scripts\VR_Interactions\LaserPointer.cs" />
      <Compile Include="Assets\Scripts\VR_Interactions\OpenScreenScript.cs" />

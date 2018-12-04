@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenScreenScript : MonoBehaviour {
 
     public GameObject screen;
+    public bool screenActive = false;
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +15,8 @@ public class OpenScreenScript : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         
-            screen.SetActive(true);
+        screen.SetActive(true);
+        screenActive = true;
        
     }
 }

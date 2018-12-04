@@ -9,7 +9,6 @@ namespace SH
     public class door : MonoBehaviour
     {
 
-        Animation doorAnim;
         Animator animator;
 
         public DoorState doorstate = DoorState.broken;
@@ -17,7 +16,7 @@ namespace SH
         void Start()
         {
 
-            animator = this.GetComponent<Animator>();
+            animator = this.GetComponentInChildren<Animator>();
             doorstate = DoorState.broken;
 
         }

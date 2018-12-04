@@ -9,15 +9,12 @@ namespace SH
     public class door : MonoBehaviour
     {
 
-        Animation doorAnim;
-        Animator animator;
-
         public DoorState doorstate = DoorState.broken;
+        public Animator animator;
 
         void Start()
         {
 
-            animator = this.GetComponent<Animator>();
             doorstate = DoorState.broken;
 
         }
@@ -52,16 +49,28 @@ namespace SH
 
         void OnTriggerEnter(Collider obj)
         {
-            if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
+            //if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer\
+            //print("Enter: " + obj.transform.root.name);
+            if (obj.transform.root.tag != "Player") return;    // ignore colliders within this layer
             if (doorstate == DoorState.broken) return;
             doorstate = DoorState.opening;
             print("Opening door");
         }
 
+        void OnTriggerStay(Collider obj) {
+            //print("Stay: " + obj.transform.root.name);
+            //if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
+            if (obj.transform.root.tag != "Player") return;    // ignore colliders within this layer
+            if (doorstate == DoorState.broken) return;
+            doorstate = DoorState.opening;
+            print("Stay open door");
+        }
 
         void OnTriggerExit(Collider obj)
         {
-            if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
+         
+            //if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
+            if (obj.transform.root.tag != "Player") return;    // ignore colliders within this layer
             if (doorstate == DoorState.broken) return;
             doorstate = DoorState.closing;
             print("Closing door");

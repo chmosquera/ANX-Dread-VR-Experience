@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour {
                 break;
             case Scene.ShakyHands:
                 fadeOutSphere.fadeActive = true;
-                SH_Door.GetComponentInChildren<door>().doorstate = SH.DoorState.broken;
+                //SH_Door.GetComponentInChildren<door>().doorstate = SH.DoorState.broken;
+                SH_Door.GetComponentInChildren<door>().SetBroken();
                 if (CR_areaLight.intensity < 1.5f) {
                     CR_areaLight.intensity += 0.01f;
                 }

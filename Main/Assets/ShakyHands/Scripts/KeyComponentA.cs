@@ -25,15 +25,16 @@ namespace SH
 
         void OnCollisionEnter(Collision other)
         {
-            print("Key attached");
+            print("Key collision enter: key not atttached yet");
             if (other.transform.GetComponent<KeyComponentB>() != null)
             {
                 // Attach B to this object
                 other.transform.SetParent(this.transform);
-                Destroy(other.transform.GetComponent<Rigidbody>());
+                //Destroy(other.transform.GetComponent<Rigidbody>());
 
                 // Open door
                 door.GetComponentInChildren<door>().doorstate = DoorState.closed;
+                print("key attached: " + door.GetComponentInChildren<door>().doorstate.ToString());
             }
         }
 

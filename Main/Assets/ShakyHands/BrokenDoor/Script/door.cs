@@ -10,8 +10,8 @@ namespace SH
     {
 
         Animator animator;
-
         public DoorState doorstate = DoorState.broken;
+        public bool initBroke = false;
 
         void Start()
         {
@@ -23,7 +23,7 @@ namespace SH
 
         void Update()
         {
-            //print("Doorstate: " + doorstate.ToString());
+            print("Doorstate: " + doorstate.ToString());
             switch (doorstate) {
                 case DoorState.broken:
                     animator.SetBool("isBroken", true);
@@ -64,6 +64,14 @@ namespace SH
             if (doorstate == DoorState.broken) return;
             doorstate = DoorState.closing;
             print("Closing door");
+        }
+
+        public void SetBroken() {
+            if (initBroke) return;
+
+            doorstate = DoorState.broken;
+            initBroke = true;
+        
         }
     }
 }

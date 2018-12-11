@@ -18,11 +18,11 @@ public class lightscript : MonoBehaviour {
 	void Update () {
         if (wait <= 0)
         {
-            myLight.intensity += 0.05f;
+            myLight.intensity += 0.1f;
             if (myLight.intensity >= 7.0f && state == 0)
             {
                 myLight.intensity = 0;
-                wait = 400;
+                wait = 100;
                 state = 1;
             }
             if (myLight.intensity >= 3.0f && state == 1)

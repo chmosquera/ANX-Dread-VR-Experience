@@ -4,28 +4,30 @@ using UnityEngine;
 
 public class TriggerBox : MonoBehaviour
 {
-    private bool triggered;
-    public TriggerBox()
-    {
-        triggered = false;
-    }
+    private bool triggered = false;
 
     public void OnTriggerEnter(Collider other)
     {
-        print("here");
-        print(other.GetComponent(tag));
-        if (other.CompareTag("Player"))
+        //other.name("Hello");
+        
+        print(other.gameObject.tag);
+        //if (other.gameObject.layer == LayerMask.NameToLayer("NonInteractable"))
+        if (other.transform.root.tag == "Player")
         {
+            print("Found 'player' tag");
             triggered = true;
         }
-        else
-        {
-            triggered = false;
-        }
+        //else
+        //{
+        //    print("Triggered by: " + other.gameObject.name);
+        //    triggered = true;
+        //    //print(triggered);
+        //}
     }
 	
     public bool GetTriggered()
     {
+        //print(triggered);
         return triggered;
     }
 }

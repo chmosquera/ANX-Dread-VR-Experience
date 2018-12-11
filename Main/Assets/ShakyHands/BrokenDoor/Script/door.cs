@@ -23,7 +23,7 @@ namespace SH
 
         void Update()
         {
-            print("Doorstate: " + doorstate.ToString());
+            //print("Doorstate: " + doorstate.ToString());
             switch (doorstate) {
                 case DoorState.broken:
                     animator.SetBool("isBroken", true);

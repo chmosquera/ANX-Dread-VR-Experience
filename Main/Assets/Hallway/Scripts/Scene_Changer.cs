@@ -6,13 +6,24 @@ using UnityEngine.SceneManagement;
 public class Scene_Changer : MonoBehaviour {
 
     public Animator animator;
-    public GameObject target;
+    public TriggerBox triggerboxPrefab;
+    public TriggerBox target_right;
+    public TriggerBox target_left;
     private int levelToLoad;
     //TriggerBox box = target.AddComponent<TriggerBox>();
 
+    // instantiate
+    public void Start()
+    {
+        target_right = Instantiate(triggerboxPrefab, new Vector3(-2.5f, 1.5f, -17.5f), Quaternion.identity);
+        target_left = Instantiate(triggerboxPrefab, new Vector3(2.5f, 1.5f, -17.5f), Quaternion.identity);
+    }
+
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        print("Target Left Triggered: " + target_left.GetTriggered() + "\tTarget Right Triggered: " + target_right.GetTriggered());
+
+        if (target_left.GetTriggered() || target_right.GetTriggered())
         {
             FadeToLevel(1);
         }
@@ -21,7 +32,7 @@ public class Scene_Changer : MonoBehaviour {
     public void FadeToLevel (int levelIndex)
     {
         levelToLoad = levelIndex;
-        animator.SetTrigger("Fade_Out");
+        animator.SetTrigger("FadeOut");
     }
 
     public void OnFadeComplete ()

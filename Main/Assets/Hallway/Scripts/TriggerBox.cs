@@ -10,7 +10,6 @@ public class TriggerBox : MonoBehaviour
     {
         //other.name("Hello");
         
-        print(other.gameObject.tag);
         //if (other.gameObject.layer == LayerMask.NameToLayer("NonInteractable"))
         if (other.transform.root.tag == "Player")
         {

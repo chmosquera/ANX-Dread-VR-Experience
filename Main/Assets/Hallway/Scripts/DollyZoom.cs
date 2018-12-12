@@ -6,15 +6,15 @@ using UnityEngine;
 public class DollyZoom : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    [SerializeField] private float dollySpeed = 5.0f;
+    //[SerializeField] private float dollySpeed = 5.0f;
     private Camera camera;
     private float initialFrustumHeight;
 
     //[SerializeField] private float speedH = 5.0f;
     //[SerializeField] private float speedV = 5.0f;
 
-    private float yaw = 0.0f;
-    private float pitch = 0.0f;
+    //private float yaw = 0.0f;
+    //private float pitch = 0.0f;
 
     private void Awake()
     {

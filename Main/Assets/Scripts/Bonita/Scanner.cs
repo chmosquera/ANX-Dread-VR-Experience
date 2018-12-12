@@ -18,11 +18,13 @@ namespace SH
 
         void OnTriggerEnter(Collider obj)
         {
-            if (myDoor.doorstate == hsDoorstate.locked)
+            print("collision");
+            if (myDoor.doorstate == hsDoorState.locked)
             {
+                print("door is locked");
                 if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
                 start = Time.time;
-                if (delta != 0)
+                if (delta != 0) //not first time 
                 {
                     myDoor.doorstate = hsDoorState.scanning;
                 }
@@ -32,7 +34,7 @@ namespace SH
 
         void OnTriggerExit(Collider obj)
         {
-            if (doorstate == hsDoorState.scanning)
+            if (myDoor.doorstate == hsDoorState.scanning || delta == 0)
             {
                 if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
                 end = Time.time;

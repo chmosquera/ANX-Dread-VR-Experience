@@ -49,20 +49,11 @@ namespace SH
         public void scanOccurred()
         {
             print("recieved message from scanner");
-            StartCoroutine(Example());
             attemptToOpen();
-        }
-
-        IEnumerator Example()
-        {
-            print(Time.time);
-            yield return new WaitForSeconds(5);
-            print(Time.time);
         }
 
         void attemptToOpen()
         {
-            //StartCoroutine(Example());
             scanAttempts++;
             print("scan attemps: " + scanAttempts);
             if (scanAttempts >= 3)
@@ -102,7 +93,7 @@ namespace SH
            if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
             if (doorstate == hsDoorState.locked || doorstate == hsDoorState.scanning) return;
             //wait 
-            myWait(3);
+           // myWait(3);
 
            doorstate = hsDoorState.closing;
            print("Closing door");

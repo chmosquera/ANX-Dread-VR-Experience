@@ -1287,6 +1287,31 @@ Prefab:
       propertyPath: m_Name
       value: Control Room Area Light
       objectReference: {fileID: 0}
+    - target: {fileID: 65917621591840112, guid: 3f4421d654bf78943a53fe3a6f452a4d,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.87500453
+      objectReference: {fileID: 0}
+    - target: {fileID: 65917621591840112, guid: 3f4421d654bf78943a53fe3a6f452a4d,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0.17615323
+      objectReference: {fileID: 0}
+    - target: {fileID: 108780621073598974, guid: 3f4421d654bf78943a53fe3a6f452a4d,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 108780621073598974, guid: 3f4421d654bf78943a53fe3a6f452a4d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.42969707
+      objectReference: {fileID: 0}
+    - target: {fileID: 108780621073598974, guid: 3f4421d654bf78943a53fe3a6f452a4d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.1509434
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f4421d654bf78943a53fe3a6f452a4d, type: 2}
   m_IsPrefabAsset: 0
@@ -1938,6 +1963,11 @@ Transform:
 --- !u!1 &494870290 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1347580475769222, guid: ebc6ac3ec287e1b46b4e4c0279ae3f10,
+    type: 2}
+  m_PrefabInternal: {fileID: 1120507772}
+--- !u!4 &494870291 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4307138844075466, guid: ebc6ac3ec287e1b46b4e4c0279ae3f10,
     type: 2}
   m_PrefabInternal: {fileID: 1120507772}
 --- !u!1001 &530087303
@@ -3374,72 +3404,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737646631}
   m_Mesh: {fileID: 4300000, guid: 5c776899fe0928242bb27cc11ad3f81e, type: 3}
---- !u!1 &756598203
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 756598205}
-  - component: {fileID: 756598204}
-  m_Layer: 0
-  m_Name: Point Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &756598204
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 756598203}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &756598205
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 756598203}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.13, z: -6.057}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &761145387 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114359501458203950, guid: 9177bb2bc29813e49a5399b08014feb2,
@@ -5451,6 +5415,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4377215977856780, guid: ebc6ac3ec287e1b46b4e4c0279ae3f10, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.0308
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebc6ac3ec287e1b46b4e4c0279ae3f10, type: 2}
   m_IsPrefabAsset: 0
@@ -7409,6 +7377,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1859474692520642, guid: ebc6ac3ec287e1b46b4e4c0279ae3f10,
     type: 2}
   m_PrefabInternal: {fileID: 1120507772}
+--- !u!4 &1692637010 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4626191773870966, guid: ebc6ac3ec287e1b46b4e4c0279ae3f10,
+    type: 2}
+  m_PrefabInternal: {fileID: 1120507772}
 --- !u!1 &1715539575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1945805193749484, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58,
@@ -8257,18 +8230,27 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 65606210718691308, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58,
+    - target: {fileID: 114463083558702258, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58,
         type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
+      propertyPath: leftControllerScriptAlias
+      value: 
+      objectReference: {fileID: 494870291}
+    - target: {fileID: 114463083558702258, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58,
+        type: 2}
+      propertyPath: rightControllerScriptAlias
+      value: 
+      objectReference: {fileID: 1692637010}
+    - target: {fileID: 4534480513633884, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 4.0082173
       objectReference: {fileID: 0}
-    - target: {fileID: 1865982598412320, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
+    - target: {fileID: 4534480513633884, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 4.0082173
       objectReference: {fileID: 0}
-    - target: {fileID: 1775370286037682, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 4534480513633884, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 4.0082173
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58, type: 2}

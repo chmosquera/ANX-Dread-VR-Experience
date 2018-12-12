@@ -40,12 +40,12 @@ namespace SH
 
         void OnCollisionStay(Collision other)
         {
-            print("trigger");
+            //print("trigger");
         }
 
         void OnCollisionExit(Collision other)
         {
-            print("trigger");
+            //print("trigger");
         }
     }
 }

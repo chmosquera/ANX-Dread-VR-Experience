@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
                 fadeOutSphere.fadeActive = true;
                 //SH_Door.GetComponentInChildren<door>().doorstate = SH.DoorState.broken;
                 SH_Door.GetComponentInChildren<door>().SetBroken();
-                if (CR_areaLight.intensity < 1.5f) {
+                if (CR_areaLight.intensity < 1.0f) {
                     CR_areaLight.intensity += 0.01f;
                 }
                 break;

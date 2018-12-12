@@ -36,6 +36,10 @@ namespace SH
                 if (reachedIMax) myLight.intensity -= iStep;
                 else myLight.intensity += iStep;
 
+            }else if(myDoor.doorstate == hsDoorState.scanning)
+            {
+                myLight.color = Color.blue;
+                myLight.intensity = 5.0f;
             }
             else
             {

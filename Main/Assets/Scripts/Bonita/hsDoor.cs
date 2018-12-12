@@ -4,7 +4,7 @@ using System.Collections;
 namespace SH
 {
 
-    public enum hsDoorState { locked, opening, closing }
+    public enum hsDoorState { locked, opening, closing, scanning }
 
     public class hsDoor : MonoBehaviour
     {
@@ -48,7 +48,8 @@ namespace SH
 
         public void scanOccurred()
         {
-            print("Scanner Hit");
+            print("recieved message from scanner");
+            StartCoroutine(Example());
             attemptToOpen();
         }
 
@@ -61,11 +62,17 @@ namespace SH
 
         void attemptToOpen()
         {
-            StartCoroutine(Example());
+            //StartCoroutine(Example());
             scanAttempts++;
-            if(scanAttempts > 3)
+            print("scan attemps: " + scanAttempts);
+            if (scanAttempts >= 3)
             {
                 doorstate = hsDoorState.opening;
+                return;
+            }
+            else
+            {
+                doorstate = hsDoorState.locked;
             }
 
         }
@@ -74,18 +81,31 @@ namespace SH
         void OnTriggerEnter(Collider obj)
         {
             if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
-            if (doorstate == hsDoorState.locked) return;
+            if (doorstate == hsDoorState.locked || doorstate == hsDoorState.scanning) return;
             doorstate = hsDoorState.opening;
             print("Opening door");
         }
 
+        void myWait(float stop)
+        {
+            float delta = 0;
+            float start = Time.time;
+            float end = Time.time;
+            do
+            {
+                delta = start - end;
+            } while (delta < stop);
+        }
 
         void OnTriggerExit(Collider obj)
         {
-            if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
-            if (doorstate == hsDoorState.locked) return;
-            doorstate = hsDoorState.closing;
-            print("Closing door");
+           if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
+            if (doorstate == hsDoorState.locked || doorstate == hsDoorState.scanning) return;
+            //wait 
+            myWait(3);
+
+           doorstate = hsDoorState.closing;
+           print("Closing door");
         }
 
         public void SetBroken() {

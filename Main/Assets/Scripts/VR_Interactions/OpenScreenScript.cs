@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StartButtonState {INACTIVE, ACTIVE};
+
 public class OpenScreenScript : MonoBehaviour {
 
     public GameObject screen;
     public bool screenActive = false;
+    private StartButtonState state = inactive;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +20,9 @@ public class OpenScreenScript : MonoBehaviour {
         if (other.transform.root.tag != "Player") return;
         if (other.gameObject.name == "[VRTK][AUTOGEN][Controller][NearTouch][CollidersContainer]") return;       // avoid this collider in the hands (bc its huge and used for something else)
         if (other.gameObject.name == "[VRTK][AUTOGEN][BodyColliderContainer]") return;                          // also avoid the body collider
-        screen.SetActive(true);
-        screenActive = true;
-       
+        //screen.SetActive(true);
+        //screenActive = true;
+
+        state = StartButtonState.ACTIVE;
     }
 }

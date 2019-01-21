@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Bonita.unity
+- path: Assets/Scenes/Main - Chanelle Copy.unity
   isLoaded: 1
   isActive: 1

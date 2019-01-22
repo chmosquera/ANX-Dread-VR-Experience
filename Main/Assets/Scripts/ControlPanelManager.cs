@@ -13,7 +13,7 @@ public class ControlPanelManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        screen.setActive(false);
 	}
 	
 	// Update is called once per frame
@@ -28,7 +28,7 @@ public class ControlPanelManager : MonoBehaviour {
 
                     // for now, going to recover state. Later, must first go to crash state
                     manager.ChangeGameState(GameState.Recover);
-                }
+                } 
               
                 break;
             case GameState.Crash:

@@ -21,7 +21,6 @@ public class FocusSphere : MonoBehaviour {
                 Color color = obj.GetComponent<MeshRenderer>().material.color;
                 color.a -= Time.deltaTime * fadeSpeed;
                 obj.GetComponent<MeshRenderer>().material.color = color;
-                print(color.a);
             }
         }
         

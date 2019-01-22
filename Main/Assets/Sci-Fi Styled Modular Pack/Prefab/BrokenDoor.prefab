@@ -237,7 +237,7 @@ Transform:
   m_GameObject: {fileID: 1877172421411488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.5593944, y: 7.5593944, z: 7.5593944}
+  m_LocalScale: {x: 4.0082173, y: 4.0082173, z: 4.0082173}
   m_Children: []
   m_Father: {fileID: 4275314659204852}
   m_RootOrder: 0
@@ -723,8 +723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1975310f9e226ad41be662562353f030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorstate: 0
-  initBroke: 0
+  manager: {fileID: 0}
+  state: 0
 --- !u!114 &114075753618012264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -786,7 +786,7 @@ MonoBehaviour:
   iStep: 1
   iMax: 20
   iMin: 5
-  myDoor: {fileID: 114027569540344914}
+  doorState: 0
 --- !u!114 &114463083558702258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46326c2740186dc418dbfbee204ff5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 1945805193749484}
+  door: {fileID: 0}
 --- !u!114 &114919666071861030
 MonoBehaviour:
   m_ObjectHideFlags: 1

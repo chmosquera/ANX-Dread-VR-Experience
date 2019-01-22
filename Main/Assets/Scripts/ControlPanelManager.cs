@@ -24,7 +24,8 @@ public class ControlPanelManager : MonoBehaviour {
                 if (startButton.screenActive)
                 {
                     screen.SetActive(true);
-                    lightSystem.startButtonPressed = true;
+                    //lightSystem.startButtonPressed = true;
+                    lightSystem.state = CPLightState.startButtonPressed;
 
                     // for now, going to recover state. Later, must first go to crash state
                     manager.ChangeGameState(GameState.Recover);

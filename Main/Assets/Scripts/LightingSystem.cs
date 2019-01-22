@@ -9,8 +9,9 @@ public class LightingSystem : MonoBehaviour {
     public List<Light> lights;
     public GameManager gameManager;
     public CPLightState state = CPLightState.init;
+    //private bool incrScreenLight = true;
 
-    public bool startButtonPressed = false;
+    //public bool startButtonPressed = false;
 
 	// Use this for initialization
 	void Start () {
@@ -21,9 +22,18 @@ public class LightingSystem : MonoBehaviour {
 	void Update () {
 		switch(state)
         {
+            case CPLightState.init:
+                lights[1].intensity = 0.0f;
+                break;
             case CPLightState.startButtonPressed:
-                lights[1].intensity = 2.5f;
-                lights[1].color = new Color(152f/255f, 149f/255f, 137f/255f, 1f);
+                //lights[1].intensity = 2.5f;
+                //lights[1].color = new Color(152f/255f, 149f/255f, 137f/255f, 1f);
+                
+                if (lights[2].intensity < 2.5f)
+                {
+                    print("in this loop");
+                    lights[2].intensity += Time.deltaTime * 0.5f;
+                }
                 break;
             case CPLightState.recover:
                 lights[1].intensity = 2.5f;
@@ -34,6 +44,22 @@ public class LightingSystem : MonoBehaviour {
         }
 	}
 
+    //IEnumerator IncreaseLightIntensity(Light light, float intensity, float step)
+    //{
+    //    while (light.intensity < intensity)
+    //    {
+    //        print("in this loop");
+    //        light.intensity += Time.deltaTime * step;
+    //    }
+    //}
+
+    void DecreaseLightIntensity(Light light, float intensity, float step)
+    {
+        while (light.intensity > intensity)
+        {
+            light.intensity -= Time.deltaTime * step;
+        }
+    }
     //IEnumerator Flashing(Light light, float min, float max, float step)
     //{
     //    if (light.Intensity < min)

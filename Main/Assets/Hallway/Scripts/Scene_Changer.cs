@@ -23,13 +23,9 @@ public class Scene_Changer : MonoBehaviour {
     {
         print("Target Left Triggered: " + target_left.GetTriggered() + "\tTarget Right Triggered: " + target_right.GetTriggered());
 
-        if (target_right.GetTriggered())
+        if (target_left.GetTriggered() || target_right.GetTriggered())
         {
             FadeToLevel(1);
-        }
-        else if (target_left.GetTriggered())
-        {
-            FadeToLevel(2);
         }
 	}
 

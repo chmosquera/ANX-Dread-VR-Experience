@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FocusSphere : MonoBehaviour {
-    public float fadeSpeed = 0.5f;
+    private float fadeSpeed = 0.5f;
     public bool fadeActive = false;
     public GameObject[] objList;
 

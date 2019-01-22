@@ -1243,6 +1243,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 23615750818191790, guid: 3f4421d654bf78943a53fe3a6f452a4d,
+        type: 2}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4826044580804658, guid: 3f4421d654bf78943a53fe3a6f452a4d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1312,6 +1317,20 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.1509434
       objectReference: {fileID: 0}
+    - target: {fileID: 23615750818191790, guid: 3f4421d654bf78943a53fe3a6f452a4d,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4569d0130256c8046be16d590d2e4a32, type: 2}
+    - target: {fileID: 1812071507740618, guid: 3f4421d654bf78943a53fe3a6f452a4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23615750818191790, guid: 3f4421d654bf78943a53fe3a6f452a4d,
+        type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 30158077cd9ad974d88fba4bfc21c792, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f4421d654bf78943a53fe3a6f452a4d, type: 2}
   m_IsPrefabAsset: 0
@@ -1684,11 +1703,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfab03a6a58e024680ec4ce43c4fe03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openScreenBtn: {fileID: 1458303293}
-  SH_Door: {fileID: 1715539575}
-  sceneState: 0
-  fadeOutSphere: {fileID: 1350580835}
-  CR_areaLight: {fileID: 704632913}
+  cpManager: {fileID: 0}
+  shManager: {fileID: 0}
+  gameState: 0
 --- !u!4 &462077586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 469584, guid: 2216270888a4ced48b33b7b5641611e6,
@@ -3101,11 +3118,6 @@ Transform:
   m_Father: {fileID: 1411479666}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &704632913 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 108780621073598974, guid: 3f4421d654bf78943a53fe3a6f452a4d,
-    type: 2}
-  m_PrefabInternal: {fileID: 275208388}
 --- !u!1 &708815452
 GameObject:
   m_ObjectHideFlags: 0
@@ -5880,7 +5892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2611f0c6ff9dac443bf44f85069925df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 0
   fadeActive: 0
   objList:
   - {fileID: 93460392}
@@ -6380,12 +6391,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1424379597}
   m_Mesh: {fileID: 4300000, guid: bf457f6799881e747bbd9e01d6dc3ef2, type: 3}
---- !u!114 &1458303293 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114860452409454086, guid: 3f4421d654bf78943a53fe3a6f452a4d,
-    type: 2}
-  m_PrefabInternal: {fileID: 275208388}
-  m_Script: {fileID: 11500000, guid: 1eb450f4f99ae7a418ab235ede343736, type: 3}
 --- !u!1 &1463426247
 GameObject:
   m_ObjectHideFlags: 0
@@ -7317,11 +7322,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4626191773870966, guid: ebc6ac3ec287e1b46b4e4c0279ae3f10,
     type: 2}
   m_PrefabInternal: {fileID: 1120507772}
---- !u!1 &1715539575 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1945805193749484, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58,
-    type: 2}
-  m_PrefabInternal: {fileID: 2120145743}
 --- !u!1 &1754457141
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class ControlPanelManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        screen.setActive(false);
+        screen.SetActive(false);
 	}
 	
 	// Update is called once per frame

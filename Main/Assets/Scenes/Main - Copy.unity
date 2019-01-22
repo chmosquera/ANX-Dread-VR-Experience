@@ -2339,8 +2339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfab03a6a58e024680ec4ce43c4fe03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cpManager: {fileID: 432932300}
-  shManager: {fileID: 1196769478}
+  cpManager: {fileID: 0}
+  shManager: {fileID: 0}
   gameState: 0
 --- !u!1 &432932298
 GameObject:
@@ -2382,12 +2382,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4643a9fc1b17a646bc837ca31ac4a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 1458303293}
-  screen: {fileID: 1387948414}
+  startButton: {fileID: 0}
+  screen: {fileID: 0}
   gameState: 0
-  lightSystem: {fileID: 1601701186}
-  manager: {fileID: 422980336}
-  fadeOutSphere: {fileID: 1350580835}
+  lightSystem: {fileID: 0}
+  manager: {fileID: 0}
+  fadeOutSphere: {fileID: 0}
 --- !u!4 &462077586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 469584, guid: 2216270888a4ced48b33b7b5641611e6,
@@ -6286,12 +6286,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 0.19608502, z: 4}
   m_Center: {x: 0, y: 0.0940137, z: 0}
---- !u!114 &939702159 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114424894122199724, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58,
-    type: 2}
-  m_PrefabInternal: {fileID: 2120145743}
-  m_Script: {fileID: 11500000, guid: 5875c3051e760ec4f9048a8d106568a9, type: 3}
 --- !u!1 &956708049
 GameObject:
   m_ObjectHideFlags: 0
@@ -7770,8 +7764,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
-  door: {fileID: 1715539578}
-  alarm: {fileID: 939702159}
+  door: {fileID: 0}
+  alarm: {fileID: 0}
 --- !u!1 &1223053920
 GameObject:
   m_ObjectHideFlags: 0
@@ -9032,7 +9026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1387948415
 Transform:
   m_ObjectHideFlags: 0
@@ -9063,8 +9057,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e305453a48fa58446882f6671dfa0d58, type: 2}
-  - {fileID: 2100000, guid: 510c6e0b8b5c948458c2b4bc3de5a637, type: 2}
+  - {fileID: 2100000, guid: 4569d0130256c8046be16d590d2e4a32, type: 2}
+  - {fileID: 2100000, guid: a7403e70666a4c941bad78367a9ea679, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10673,12 +10667,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4626191773870966, guid: ebc6ac3ec287e1b46b4e4c0279ae3f10,
     type: 2}
   m_PrefabInternal: {fileID: 1120507772}
---- !u!114 &1715539578 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114027569540344914, guid: d6ef0f3ee9dee854eb2aa8f74fc40c58,
-    type: 2}
-  m_PrefabInternal: {fileID: 2120145743}
-  m_Script: {fileID: 11500000, guid: 1975310f9e226ad41be662562353f030, type: 3}
 --- !u!1 &1754457141
 GameObject:
   m_ObjectHideFlags: 0

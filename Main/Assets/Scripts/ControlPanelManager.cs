@@ -38,6 +38,7 @@ public class ControlPanelManager : MonoBehaviour {
                 break;
             case GameState.Recover:
                 fadeOutSphere.fadeActive = true;
+                fadeOutSphere.gameObject.SetActive(false);
 
 
                 break;

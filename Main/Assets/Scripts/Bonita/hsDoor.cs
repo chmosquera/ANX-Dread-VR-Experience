@@ -77,23 +77,11 @@ namespace SH
             print("Opening door");
         }
 
-        void myWait(float stop)
-        {
-            float delta = 0;
-            float start = Time.time;
-            float end = Time.time;
-            do
-            {
-                delta = start - end;
-            } while (delta < stop);
-        }
 
         void OnTriggerExit(Collider obj)
         {
            if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
             if (doorstate == hsDoorState.locked || doorstate == hsDoorState.scanning) return;
-            //wait 
-           // myWait(3);
 
            doorstate = hsDoorState.closing;
            print("Closing door");

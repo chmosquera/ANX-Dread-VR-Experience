@@ -37,19 +37,8 @@ namespace SH
             if (myDoor.doorstate == hsDoorState.scanning || delta == 0)
             {
                 if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
-                end = Time.time;
-                //print("end:" + end);
-                delta = end - start;
-                print("delta:" + delta);
-                if (delta > 3)
-                {
-                    print("scan occurred for 3 seconds");
-                    myDoor.scanOccurred();
-                }
-                else
-                {
-                    myDoor.doorstate = hsDoorState.locked;
-                }
+                print("scan occurred for 3 seconds");
+                myDoor.scanOccurred();
             }
 
         }

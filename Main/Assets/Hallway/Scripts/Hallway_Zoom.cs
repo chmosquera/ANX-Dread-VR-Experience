@@ -55,10 +55,10 @@ public class Hallway_Zoom : MonoBehaviour {
         {
             hallway.localScale += new Vector3(-xScaleBy, 0, 0);
             scaleCount += (hallway.localScale.x - xCompare);
-            print("Shrinking count: " + scaleCount);
+            //print("Shrinking count: " + scaleCount);
             if (scaleCount >= 0.1f)
             {
-                print("Changing to state 1");
+                //print("Changing to state 1");
                 state = 1;
                 scaleCount = 0;
             }
@@ -67,10 +67,10 @@ public class Hallway_Zoom : MonoBehaviour {
         {
             hallway.localScale += new Vector3(xScaleBy, 0, 0);
             scaleCount += (xCompare - hallway.localScale.x);
-            print("Growing count: " + scaleCount);
+            //print("Growing count: " + scaleCount);
             if (scaleCount >= 0.05f)
             {
-                print("Changing to state 0");
+                //print("Changing to state 0");
                 state = 0;
                 scaleCount = 0;
             }
@@ -79,7 +79,7 @@ public class Hallway_Zoom : MonoBehaviour {
 
     float zScale(float speed)
     {
-        return (speed) / 600f;
+        return (speed) / 1000f;
     }
 
     float xScale()

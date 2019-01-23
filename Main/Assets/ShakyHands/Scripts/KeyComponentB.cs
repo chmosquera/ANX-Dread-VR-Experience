@@ -39,7 +39,7 @@ public class KeyComponentB : MonoBehaviour
         x_r += (Time.deltaTime*0.5f * Random.Range(-1f, 1f));
         x_r = Mathf.Clamp(x_r, -0.1f, 0.1f);
 
-        print("Shaking!! - Left: " + x_l + "\tRight:" + x_r);
+        //print("Shaking!! - Left: " + x_l + "\tRight:" + x_r);
 
         leftHandModel.localPosition = new Vector3(x_l, 0, 0);
         rightHandModel.localPosition = new Vector3(x_r, 0, 0);

@@ -11,6 +11,8 @@ public class PuzzlePieces : MonoBehaviour {
     public int minV = 1;
     public int maxV = 5;
 
+    public bool activated = false;
+
     [SerializeField] private PrimaryType pType = PrimaryType.CLOSE;
     [SerializeField] private SecondaryType sType = SecondaryType.UNIT;
 
@@ -33,6 +35,7 @@ public class PuzzlePieces : MonoBehaviour {
         return sType;
     }
 
+    #region Types
     public void SetStart() {
         pType = PrimaryType.CLOSE;
         sType = SecondaryType.START;
@@ -79,4 +82,12 @@ public class PuzzlePieces : MonoBehaviour {
         pType = PrimaryType.OPEN;
         sType = SecondaryType.EMPTY;
     }
+    #endregion
+
+    #region Triggers
+    void OnTriggerEnter(Collider other) {
+        print("entered: " + this.gameObject.name);
+        activated = !activated;
+    }
+    #endregion
 }

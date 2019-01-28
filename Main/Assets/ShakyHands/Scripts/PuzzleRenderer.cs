@@ -55,33 +55,40 @@ public class PuzzleRenderer : MonoBehaviour {
             PrimaryType pType = p.GetPrimaryType();
             SecondaryType sType = p.GetSecondaryType();
 
-            Material mat = Material.Instantiate(p.gameObject.GetComponent<Renderer>().material);
-//            Material mat2 = new Material();
+            MeshRenderer rend = p.gameObject.GetComponent<MeshRenderer>();
+            //            Material mat2 = new Material();
 
             // Material
-            if (sType == SecondaryType.START) {
-                mat = startMat;
-            } else if (sType == SecondaryType.END) {
-                mat = endMat;
-            }else if (sType == SecondaryType.UNIT) {
-                mat = unitMat;
-            }else if (sType == SecondaryType.POWERSOURCE) {
-                mat = powerMat;
+            if (sType == SecondaryType.START)
+            {
+                rend.material = startMat;
+            }
+            else if (sType == SecondaryType.END)
+            {
+                rend.material = endMat;
+            }
+            else if (sType == SecondaryType.UNIT)
+            {
+                rend.material = unitMat;
+            }
+            else if (sType == SecondaryType.POWERSOURCE)
+            {
+                rend.material = powerMat;
             }
 
             // Color
             if (pType == PrimaryType.CLOSE)
             {
-                mat.color = Color.red;
-                print("close: "+ p.gameObject.name);
+                rend.material.color = Color.grey;
+                print("close: " + p.gameObject.name);
             }
             else if (pType == PrimaryType.OPEN)
             {
-                mat.color = Color.white;
+                rend.material.color = Color.white;
                 print("open: " + p.gameObject.name);
             }
 
-            p.gameObject.GetComponent<Renderer>().material = mat;
+            //p.gameObject.GetComponent<Renderer>().material = mat;
 
         }
     }

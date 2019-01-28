@@ -79,7 +79,7 @@ public class Hallway_Zoom : MonoBehaviour {
 
     float zScale(float speed)
     {
-        return (speed) / 1000f;
+        return (speed) / 800f;
     }
 
     float xScale()

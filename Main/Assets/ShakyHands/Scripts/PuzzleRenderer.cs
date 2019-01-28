@@ -32,60 +32,53 @@ public class PuzzleRenderer : MonoBehaviour {
             }
         }
 
-        puzzle.SetScenario();
+        puzzle.SetupScenario();
         RenderPuzzle();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-       // if (puzzle.startPuzzle) {
-            
-
-
-
-        //}
-	}
+        RenderPuzzle();
+    }
 
     public void RenderPuzzle()
     {
         foreach (PuzzlePieces p in puzzle.puzzlePieces)
         {
-            PrimaryType pType = p.GetPrimaryType();
-            SecondaryType sType = p.GetSecondaryType();
+            PieceType sType = p.GetType();
 
             MeshRenderer rend = p.gameObject.GetComponent<MeshRenderer>();
             //            Material mat2 = new Material();
 
             // Material
-            if (sType == SecondaryType.START)
+            if (sType == PieceType.START)
             {
                 rend.material = startMat;
             }
-            else if (sType == SecondaryType.END)
+            else if (sType == PieceType.END)
             {
                 rend.material = endMat;
             }
-            else if (sType == SecondaryType.UNIT)
+            else if (sType == PieceType.UNIT)
             {
                 rend.material = unitMat;
             }
-            else if (sType == SecondaryType.POWERSOURCE)
-            {
-                rend.material = powerMat;
-            }
 
             // Color
-            if (pType == PrimaryType.CLOSE)
+            if (p.activated == true)
             {
-                rend.material.color = Color.grey;
-                print("close: " + p.gameObject.name);
-            }
-            else if (pType == PrimaryType.OPEN)
-            {
-                rend.material.color = Color.white;
-                print("open: " + p.gameObject.name);
+                if (p.activated == false) {          // not activated
+                    rend.material.color = Color.white;
+                }
+                else if (p.activated == true && p.value == 1)       // activated and correct
+                {
+                    rend.material.color = Color.green;
+                }
+                else if (p.activated == true && p.value == 0)                      // activated and incorrect
+                {
+                    rend.material.color = Color.red;
+                }
             }
 
             //p.gameObject.GetComponent<Renderer>().material = mat;

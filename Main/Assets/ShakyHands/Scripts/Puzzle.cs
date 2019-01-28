@@ -9,64 +9,75 @@ public class Puzzle : MonoBehaviour {
     public int size = 5;
     public PuzzleState state = PuzzleState.UNSOLVED;
     public List<PuzzlePieces> puzzlePieces;
+
+    public PuzzlePieces pieceStart;
+    public PuzzlePieces pieceEnd;
+
+    public bool endPuzzle = false;
     public bool startPuzzle = false;
+    public int[] solution = new int[] {1, 1, 0, 0, 0,
+                    0, 1, 1, 1, 0,
+                    0, 0, 0, 1, 0,
+                    0, 0, 0, 1, 0,
+                    0, 0, 0, 1, 1 };
+
 
     // Use this for initialization
     void Start () {
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (this.IsSolved()) {
 
+    // Update is called once per frame
+    void Update()
+    {
+        if (endPuzzle == true)
+        {
+            print("We are checking the solution");
+            if (CheckSolution())
+            {
+                state = PuzzleState.SOLVED;
+                print("solved");
+            }
+            else
+            {
+                print("unsoolved");
+                // restart puzzle
+            }
         }
     }
 
-    private bool IsSolved()
+    // if this piece's activated status matches the solution
+    public bool IsValid(PuzzlePieces p)
     {
-        int sum = 0;
+        if (p.activated == false && p.value == 1) return false;
+        else if (p.activated == true && p.value == 0) return false;
 
-        //for (int i = 0; i < size; i++)
-        //{
-        //    for (int j = 0; j < size; j++)
-        //    {
-        //        sum += puzzlePieces[i,j].voltage;
-        //    }
-
-        //}
-
-        if (sum == 0) return true;
-        return false;
+        return true;
     }
 
-    public void SetScenario() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++)     {
+    public void SetupScenario() {
+        // Set values of each piece
+        for (int i = 0; i < puzzlePieces.Count; i++)
+        {
+            puzzlePieces[i].value = solution[i];
+            puzzlePieces[i].SetUnit();
+            puzzlePieces[i].puzzle = this;
+        }
 
-                int idx = (i * size) + j;
+        // Set start and end of puzzle
+        pieceStart = puzzlePieces[0];
+        pieceStart.SetStart();
+        pieceEnd = puzzlePieces[puzzlePieces.Count - 1];
+        pieceEnd.SetEnd();
+    }
 
-                if (i%2==0) {
-                    if (j % 2 == 0)
-                    {
-                        puzzlePieces[idx].SetClosedUnit();
-                    }
-                    else
-                    {
-                        puzzlePieces[idx].SetOpenedUnit();
-                    }
-                }
-                else
-                {                    
-                    puzzlePieces[idx].SetOpenedUnit();
-                }
-
+    public bool CheckSolution()
+    {
+        foreach (PuzzlePieces p in puzzlePieces) {
+            if (IsValid(p) == false) {
+                return false;
             }
         }
 
-        puzzlePieces[0].SetStart();
-        puzzlePieces[puzzlePieces.Count - 1].SetEnd();
-
-
-        startPuzzle = true;
+        return true;
     }
 }

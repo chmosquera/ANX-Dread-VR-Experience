@@ -7,7 +7,7 @@ public class FirstDoor : MonoBehaviour
 {
 
     Animator animator;
-    public GameManager manager;
+    //public GameManager manager;
     public DoorState state = DoorState.inactive;
     private bool initBroken = false;
 
@@ -50,6 +50,7 @@ public class FirstDoor : MonoBehaviour
     void OnTriggerEnter(Collider obj)
     {
         if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
+        if (obj.gameObject.name != "[VRTK][AUTOGEN][BodyColliderContainer]") return;   // Only wait for body to collide
         if (state == DoorState.broken) return;
         state = DoorState.opening;
         print("Opening door");
@@ -59,6 +60,7 @@ public class FirstDoor : MonoBehaviour
     void OnTriggerExit(Collider obj)
     {
         if (obj.gameObject.layer == LayerMask.NameToLayer("NonInteractable")) return;    // ignore colliders within this layer
+        if (obj.gameObject.name != "[VRTK][AUTOGEN][BodyColliderContainer]") return;   // Only wait for body to collide
         if (state == DoorState.broken) return;
         state = DoorState.closing;
         print("Closing door");

@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PrimaryType { OPEN, CLOSE };
-public enum SecondaryType { POWERSOURCE, START, END, UNIT, EMPTY};
+public enum PieceType {START, END, UNIT};
 
 public class PuzzlePieces : MonoBehaviour {
 
-    public int voltage = 0;
-    public int minV = 1;
-    public int maxV = 5;
-
+    public int value = 0;
+    public Puzzle puzzle;
     public bool activated = false;
 
-    [SerializeField] private PrimaryType pType = PrimaryType.CLOSE;
-    [SerializeField] private SecondaryType sType = SecondaryType.UNIT;
+    [SerializeField] private PieceType sType = PieceType.UNIT;
 
     // Use this for initialization
     void Start () {
@@ -26,68 +22,38 @@ public class PuzzlePieces : MonoBehaviour {
 		
 	}
 
-    public PrimaryType GetPrimaryType() {
-        return pType;
-    }
-
-    public SecondaryType GetSecondaryType()
+    public PieceType GetType()
     {
         return sType;
     }
 
     #region Types
     public void SetStart() {
-        pType = PrimaryType.CLOSE;
-        sType = SecondaryType.START;
+        sType = PieceType.START;
     }
 
     public void SetEnd()
     {
-        pType = PrimaryType.CLOSE;
-        sType = SecondaryType.END;
+        sType = PieceType.END;
     }
 
-    public void SetClosedUnit()
+    public void SetUnit()
     {
-        pType = PrimaryType.CLOSE;
-        sType = SecondaryType.UNIT;
-    }
-
-    public void SetOpenedUnit()
-    {
-        pType = PrimaryType.OPEN;
-        sType = SecondaryType.UNIT;
-    }
-
-    public void SetClosedPower()
-    {
-        pType = PrimaryType.CLOSE;
-        sType = SecondaryType.POWERSOURCE;
-    }
-
-    public void SetOpenedPower()
-    {
-        pType = PrimaryType.OPEN;
-        sType = SecondaryType.POWERSOURCE;
-    }
-
-    public void SetClosedEmpty()
-    {
-        pType = PrimaryType.CLOSE;
-        sType = SecondaryType.EMPTY;
-    }
-
-    public void SetOpenedEmpty()
-    {
-        pType = PrimaryType.OPEN;
-        sType = SecondaryType.EMPTY;
+        sType = PieceType.UNIT;
     }
     #endregion
 
     #region Triggers
     void OnTriggerEnter(Collider other) {
+        if (other.GetComponent<PuzzlePieces>() != null) return; // don't accept collisions with each other
+
         print("entered: " + this.gameObject.name);
         activated = !activated;
+
+        if (sType == PieceType.END) {
+            print("this is the last piece");
+            puzzle.endPuzzle = true;
+        }
     }
     #endregion
 }

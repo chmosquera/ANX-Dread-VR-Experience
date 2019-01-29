@@ -31,7 +31,6 @@ public class LightingSystem : MonoBehaviour {
                 
                 if (lights[2].intensity < 2.5f)
                 {
-                    print("in this loop");
                     lights[2].intensity += Time.deltaTime * 0.5f;
                 }
                 break;

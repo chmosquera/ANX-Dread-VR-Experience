@@ -13,7 +13,7 @@ public class OpenScreenScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //screen.SetActive(false);
+        if (manager == null) print("OpenScreenScript::Missing required element.");
     }
 
     private void OnTriggerEnter(Collider other)

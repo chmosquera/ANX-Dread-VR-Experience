@@ -15,6 +15,8 @@ public class Puzzle : MonoBehaviour {
 
     public bool endPuzzle = false;
     public bool startPuzzle = false;
+    public bool redHit = false;
+
     public int[] solution = new int[] {1, 1, 0, 0, 0,
                     0, 1, 1, 1, 0,
                     0, 0, 0, 1, 0,
@@ -29,19 +31,35 @@ public class Puzzle : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (endPuzzle == true)
+        if (startPuzzle)
         {
-            print("We are checking the solution");
-            if (CheckSolution())
+            if (!redHit)
             {
-                state = PuzzleState.SOLVED;
-                print("solved");
+                if (endPuzzle == true)
+                {
+                    print("We are checking the solution");
+                    if (CheckSolution())
+                    {
+                        state = PuzzleState.SOLVED;
+                        print("solved");
+                    }
+                    else
+                    {
+                        print("unsolved");
+                        // restart puzzle
+                        RestartPuzzle();
+
+                    }
+                }
             }
             else
             {
-                print("unsoolved");
-                // restart puzzle
+                RestartPuzzle();
             }
+        }
+        else
+        {
+            RestartPuzzle();
         }
     }
 
@@ -79,5 +97,16 @@ public class Puzzle : MonoBehaviour {
         }
 
         return true;
+    }
+
+    public void RestartPuzzle()
+    {
+        foreach (PuzzlePieces p in puzzlePieces)
+        {
+            p.activated = false;
+            endPuzzle = false;
+            startPuzzle = false;
+            redHit = false;
+        }
     }
 }

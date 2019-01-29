@@ -66,20 +66,20 @@ public class PuzzleRenderer : MonoBehaviour {
             }
 
             // Color
-            if (p.activated == true)
-            {
-                if (p.activated == false) {          // not activated
-                    rend.material.color = Color.white;
-                }
-                else if (p.activated == true && p.value == 1)       // activated and correct
-                {
-                    rend.material.color = Color.green;
-                }
-                else if (p.activated == true && p.value == 0)                      // activated and incorrect
-                {
-                    rend.material.color = Color.red;
-                }
+        
+            if (p.activated == false) {          // not activated
+                rend.material.color = Color.white;
             }
+            else if (p.activated == true && p.value == 1)       // activated and correct
+            {
+                rend.material.color = Color.green;
+            }
+            else if (p.activated == true && p.value == 0)                      // activated and incorrect
+            {
+                rend.material.color = Color.red;
+                puzzle.redHit = true;
+            }
+            
 
             //p.gameObject.GetComponent<Renderer>().material = mat;
 

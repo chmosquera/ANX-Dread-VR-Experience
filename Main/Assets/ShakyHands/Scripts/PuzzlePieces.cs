@@ -50,6 +50,15 @@ public class PuzzlePieces : MonoBehaviour {
         print("entered: " + this.gameObject.name);
         activated = !activated;
 
+        if (sType == PieceType.START && activated)
+        {
+            puzzle.startPuzzle = true;
+        }
+        else if (sType == PieceType.START && !activated)
+        {
+            puzzle.startPuzzle = false;
+        }
+
         if (sType == PieceType.END) {
             print("this is the last piece");
             puzzle.endPuzzle = true;

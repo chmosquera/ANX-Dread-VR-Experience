@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 namespace SH
 {
@@ -14,6 +15,8 @@ namespace SH
         //public GameObject scanner;
         public bool initLocked = false;
         public int scanAttempts = 0;
+        public Text attemptsText;
+
 
         void Start()
         {
@@ -26,6 +29,7 @@ namespace SH
         void Update()
         {
             //print("Doorstate: " + doorstate.ToString());
+            print("scan attenpts: " + scanAttempts);
             switch (doorstate) {
                 case hsDoorState.opening:
                     animator.SetBool("isBroken", false);
@@ -55,8 +59,20 @@ namespace SH
         void attemptToOpen()
         {
             scanAttempts++;
+            if(scanAttempts == 3)
+            {
+                attemptsText.text = "Attempt " + (scanAttempts-2).ToString() +" out of 3. Please lower Heart Rate to enter. Calm Down.";
+            }
+            if (scanAttempts == 4)
+            {
+                attemptsText.text = "Attempt " + (scanAttempts - 2).ToString() + " out of 3. Your Heart Rate is Too High to Enter. CALM DOWN.";
+            }
+            if (scanAttempts == 5)
+            {
+                attemptsText.text = "Attempt " + (scanAttempts - 2).ToString()  + " out of 3. Your Heart Rate is Appropriate. Proceed through the door.";
+            }
             print("scan attemps: " + scanAttempts);
-            if (scanAttempts >= 3)
+            if (scanAttempts >= 5)
             {
                 doorstate = hsDoorState.opening;
                 return;

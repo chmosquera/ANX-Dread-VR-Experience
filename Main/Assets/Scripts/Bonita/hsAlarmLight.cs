@@ -9,9 +9,10 @@ namespace SH
     {
 
         [SerializeField] bool isLocked = true;
-        [SerializeField] Light myLight;
+        public Light myLight;
         [SerializeField] float iStep = 1.0f, iMax = 20.0f, iMin = 5.0f;
         public hsDoor myDoor;
+
 
         // Use this for initialization
         void Start()
@@ -36,7 +37,7 @@ namespace SH
                 if (reachedIMax) myLight.intensity -= iStep;
                 else myLight.intensity += iStep;
 
-            }else if(myDoor.doorstate == hsDoorState.scanning)
+            } else if (myDoor.doorstate == hsDoorState.scanning)
             {
                 myLight.color = Color.blue;
                 myLight.intensity = 5.0f;

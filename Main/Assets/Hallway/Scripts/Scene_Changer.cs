@@ -21,7 +21,7 @@ public class Scene_Changer : MonoBehaviour {
 
     public void Update()
     {
-        print("Target Left Triggered: " + target_left.GetTriggered() + "\tTarget Right Triggered: " + target_right.GetTriggered());
+        //print("Target Left Triggered: " + target_left.GetTriggered() + "\tTarget Right Triggered: " + target_right.GetTriggered());
 
         if (target_right.GetTriggered())
         {

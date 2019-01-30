@@ -9,6 +9,7 @@ public class OpenScreenScript : MonoBehaviour {
     public ControlPanelManager manager;
     public GameObject screen;
     public bool screenActive = false;
+    ////public FocusSphere f;
     private StartButtonState state = StartButtonState.INACTIVE;
 
 	// Use this for initialization
@@ -23,6 +24,7 @@ public class OpenScreenScript : MonoBehaviour {
         if (other.gameObject.name == "[VRTK][AUTOGEN][BodyColliderContainer]") return;                          // also avoid the body collider
        
         screenActive = true;
+        //f.fadeActive = true;
 
     }
 }

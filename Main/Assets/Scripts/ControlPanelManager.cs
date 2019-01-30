@@ -13,6 +13,9 @@ public class ControlPanelManager : MonoBehaviour {
     public LightingSystem lightSystem;
     public GameManager manager;
     public FocusSphere fadeOutSphere;
+    private static float crashCountdown = 3f;
+    private int flashCount = 0;
+    private bool flag = false;
 
     // Use this for initialization
     void Start () {
@@ -24,10 +27,12 @@ public class ControlPanelManager : MonoBehaviour {
         switch (gameState)
         {
             case GameState.Intro:
-                if (startButton.screenActive)
-                {
+
+                
+
+                if (startButton.screenActive) {
+
                     screen.SetActive(true);
-                    //lightSystem.startButtonPressed = true;
                     lightSystem.state = CPLightState.startButtonPressed;
                     
                     if (Input.GetKey(KeyCode.B)) {
@@ -49,22 +54,20 @@ public class ControlPanelManager : MonoBehaviour {
                         character.SetActive(false);
                         attributes.SetActive(true);
                         print("Button 'M' pressed - Attributes Image set to Active?");
-                    }
-                    if (Input.GetKey(KeyCode.C))
-                    {
-                        // for now, going to recover state. Later, must first go to crash state
-                        print("Button 'C' pressed - GameState Switching to Recover?");
-                        manager.ChangeGameState(GameState.Recover);
+
+                        manager.ChangeGameState(GameState.Crash);
                     }
              
                 } 
                 break;
 
             case GameState.Crash:
-                // This event occurs during intro setup
-                
+                lightSystem.state = CPLightState.crash;
+                CrashInitiate();
+
                 break;
             case GameState.Recover:
+                lightSystem.state = CPLightState.recover;
                 fadeOutSphere.fadeActive = true;
                 fadeOutSphere.gameObject.SetActive(false);
 
@@ -73,5 +76,27 @@ public class ControlPanelManager : MonoBehaviour {
         }
 	}
 
+
+    private void CrashInitiate(){
+        
+        print("changing to crash scene");
+        if (crashCountdown > 0)
+        {
+            crashCountdown -= Time.deltaTime;
+            flashCount++;
+            if (flashCount >= 20)
+            {
+                screen.SetActive(flag);
+                flag = !flag;
+                flashCount = 0;
+            }
+        }
+        else
+        {
+            screen.SetActive(false);
+            manager.ChangeGameState(GameState.Recover);
+            print("changing to recover scene");
+        }
+    }
 }
 

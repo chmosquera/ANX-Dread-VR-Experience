@@ -22,15 +22,25 @@ public class PuzzleRenderer : MonoBehaviour {
 
         print("width: " + pieceWidth + "  height: " + pieceHeight);
 
-        // Construct pieces
+        // Construct empty puzzle
+        GameObject boardObj = new GameObject();
+        boardObj.name = "PuzzleBoard";
+        boardObj.transform.SetParent(this.transform);
+
+        // Construct pieces to put into puzzle
         for (int i = 0; i < puzzle.size; i ++) {
             for (int j = 0; j < puzzle.size; j++) {
-                PuzzlePieces p = Instantiate(puzzlePiecePrefab, new Vector3(j * pieceWidth, i * pieceHeight, 0), Quaternion.identity);
-                p.gameObject.transform.SetParent(this.transform);
+                // PuzzlePieces p = Instantiate(puzzlePiecePrefab, new Vector3(j * pieceWidth, i * pieceHeight, 0) + this.transform.position, Quaternion.identity);
+                PuzzlePieces p = Instantiate(puzzlePiecePrefab);           
+                p.gameObject.transform.SetParent(boardObj.transform);
+                p.transform.localPosition = new Vector3(j * pieceWidth, i * pieceHeight, 0);
                 p.gameObject.transform.localScale = new Vector3(pieceWidth, pieceHeight, 0.1f);
                 puzzle.puzzlePieces.Add(p);
             }
         }
+
+        boardObj.transform.position = this.transform.position;
+        boardObj.transform.rotation = this.transform.rotation;
 
         puzzle.SetupScenario();
         RenderPuzzle();

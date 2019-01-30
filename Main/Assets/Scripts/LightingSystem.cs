@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CPLightState {init, startButtonPressed, shipCrashes, recover}
+public enum CPLightState {init, startButtonPressed, crash, recover}
 
 public class LightingSystem : MonoBehaviour {
 
-    public List<Light> lights;
+    //public List<Light> lights;
+    public Light areaLightAboveControlPanel;
+    public Light controlRoomAreaLight;
+    public Light screenLight;
+    public Light startButtonLight;
     public GameManager gameManager;
     public CPLightState state = CPLightState.init;
     //private bool incrScreenLight = true;
@@ -23,47 +27,27 @@ public class LightingSystem : MonoBehaviour {
 		switch(state)
         {
             case CPLightState.init:
-                lights[1].intensity = 0.0f;
+                controlRoomAreaLight.intensity = 0.0f;
+                startButtonLight.color = Color.yellow;
+                print(startButtonLight.color);
                 break;
             case CPLightState.startButtonPressed:
+                startButtonLight.color = Color.green;
                 //lights[1].intensity = 2.5f;
                 //lights[1].color = new Color(152f/255f, 149f/255f, 137f/255f, 1f);
-                
-                if (lights[2].intensity < 2.5f)
+
+                if (screenLight.intensity < 2.5f)
                 {
-                    lights[2].intensity += Time.deltaTime * 0.5f;
+                    screenLight.intensity += Time.deltaTime * 0.5f;
                 }
                 break;
             case CPLightState.recover:
-                lights[1].intensity = 2.5f;
-                lights[1].color = new Color(109f / 255f, 109f / 255f, 109f / 255f, 1f);
+                controlRoomAreaLight.intensity = 2.5f;
+                controlRoomAreaLight.color = new Color(109f / 255f, 109f / 255f, 109f / 255f, 1f);
 
-                //StartCoroutine(Flashing(lights[0], 4.5f, 6.5f, 0.1f));
                 break;
         }
 	}
-
-    //IEnumerator IncreaseLightIntensity(Light light, float intensity, float step)
-    //{
-    //    while (light.intensity < intensity)
-    //    {
-    //        print("in this loop");
-    //        light.intensity += Time.deltaTime * step;
-    //    }
-    //}
-
-    void DecreaseLightIntensity(Light light, float intensity, float step)
-    {
-        while (light.intensity > intensity)
-        {
-            light.intensity -= Time.deltaTime * step;
-        }
-    }
-    //IEnumerator Flashing(Light light, float min, float max, float step)
-    //{
-    //    if (light.Intensity < min)
-    //    light.Intensity = lightIntensity + step;
-    //}
 
 
 }

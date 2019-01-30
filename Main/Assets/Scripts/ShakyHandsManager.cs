@@ -6,6 +6,7 @@ public class ShakyHandsManager : MonoBehaviour {
 
     public GameState gameState;
     public FirstDoor door;
+    public Puzzle puzzle;
 
     public AlarmLight alarm;
 
@@ -27,8 +28,18 @@ public class ShakyHandsManager : MonoBehaviour {
             case GameState.Crash:
                 break;
             case GameState.Recover:
-                
-                door.InitiateBroken();
+
+//                door.InitiateBroken();
+ //               print("puzzle state: " + puzzle.state);
+            
+                if (puzzle.state == PuzzleState.SOLVED) {
+                    print("opening door");
+                    door.state = DoorState.opening;
+                } else if (puzzle.state == PuzzleState.UNSOLVED)
+                {
+                    print("breaking door");
+                    door.state = DoorState.broken;
+                }
                 //door.state = DoorState.broken;
                 //alarm.doorState = DoorState.broken;
 

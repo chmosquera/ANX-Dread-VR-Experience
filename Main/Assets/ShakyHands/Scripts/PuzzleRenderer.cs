@@ -10,6 +10,7 @@ public class PuzzleRenderer : MonoBehaviour {
     public Material endMat;
     public Material unitMat;
     public Material powerMat;
+    public Collider touchingObj;
 
     private float pieceWidth = 0.0f;
     private float pieceHeight = 0.0f;
@@ -35,6 +36,7 @@ public class PuzzleRenderer : MonoBehaviour {
                 p.gameObject.transform.SetParent(boardObj.transform);
                 p.transform.localPosition = new Vector3(j * pieceWidth, i * pieceHeight, 0);
                 p.gameObject.transform.localScale = new Vector3(pieceWidth, pieceHeight, 0.1f);
+                p.touchingObj = this.touchingObj;
                 puzzle.puzzlePieces.Add(p);
             }
         }

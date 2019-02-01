@@ -10,6 +10,10 @@ public class PuzzlePieces : MonoBehaviour {
     public Puzzle puzzle;
     public bool activated = false;
 
+    // The object that can interact with the puzzle pieces
+    public Collider touchingObj;
+
+
     [SerializeField] private PieceType sType = PieceType.UNIT;
 
     // Use this for initialization
@@ -46,6 +50,7 @@ public class PuzzlePieces : MonoBehaviour {
     #region Triggers
     void OnTriggerEnter(Collider other) {
         //if (other.GetComponent<PuzzlePieces>() != null) return; // don't accept collisions with each other
+        if (other != touchingObj) return;
         if (other.gameObject.name != "Tool") return;
         if (other.gameObject.name == "[VRTK][AUTOGEN][Controller][NearTouch][CollidersContainer]") return;       // avoid this collider in the hands (bc its huge and used for something else)
         if (other.gameObject.name == "[VRTK][AUTOGEN][BodyColliderContainer]") return;                          // also avoid the body collider

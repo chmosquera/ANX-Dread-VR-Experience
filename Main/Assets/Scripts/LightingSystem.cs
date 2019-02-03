@@ -11,6 +11,11 @@ public class LightingSystem : MonoBehaviour {
     public Light controlRoomAreaLight;
     public Light screenLight;
     public Light startButtonLight;
+    public trailLightScript left1;
+    public trailLightScript left2;
+    public trailLightScript mid;
+    public trailLightScript right1;
+    public trailLightScript right2;
     public GameManager gameManager;
     public CPLightState state = CPLightState.init;
     //private bool incrScreenLight = true;
@@ -32,7 +37,13 @@ public class LightingSystem : MonoBehaviour {
                 print(startButtonLight.color);
                 break;
             case CPLightState.startButtonPressed:
+                
                 startButtonLight.color = Color.green;
+                left1.useLights = false;
+                left2.useLights = false;
+                mid.useLights = false;
+                right1.useLights = false;
+                right2.useLights = false;
                 //lights[1].intensity = 2.5f;
                 //lights[1].color = new Color(152f/255f, 149f/255f, 137f/255f, 1f);
 

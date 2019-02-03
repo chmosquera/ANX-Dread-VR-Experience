@@ -14,6 +14,8 @@ public class trailLightScript : MonoBehaviour {
 
     private float intense;
 
+    public bool useLights = true;
+
     // Use this for initialization
     void Start()
     {
@@ -22,9 +24,18 @@ public class trailLightScript : MonoBehaviour {
 
         intense = lightOne.intensity;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (useLights)
+            lightTask();
+        else
+            lightsOff();
+
+    }
+
+    public void lightTask()
     {
         if (state == 0)
         {
@@ -60,8 +71,8 @@ public class trailLightScript : MonoBehaviour {
         }
         else if (state == 2)
         {
-            lightOne.intensity = 0;
-            lightTwo.intensity = 0;
+            lightOne.intensity = 0f;
+            lightTwo.intensity = 0f;
             lightThree.intensity = intense;
             lightFour.intensity = 0f;
             lightFive.intensity = 0f;
@@ -76,8 +87,8 @@ public class trailLightScript : MonoBehaviour {
         }
         else if (state == 3)
         {
-            lightOne.intensity = 0;
-            lightTwo.intensity = 0;
+            lightOne.intensity = 0f;
+            lightTwo.intensity = 0f;
             lightThree.intensity = 0f;
             lightFour.intensity = intense;
             lightFive.intensity = 0f;
@@ -92,8 +103,8 @@ public class trailLightScript : MonoBehaviour {
         }
         else
         {
-            lightOne.intensity = 0;
-            lightTwo.intensity = 0;
+            lightOne.intensity = 0f;
+            lightTwo.intensity = 0f;
             lightThree.intensity = 0f;
             lightFour.intensity = 0f;
             lightFive.intensity = intense;
@@ -106,5 +117,14 @@ public class trailLightScript : MonoBehaviour {
                 count = 0;
             }
         }
+    }
+
+    public void lightsOff()
+    {
+        lightOne.intensity = 0f;
+        lightTwo.intensity = 0f;
+        lightThree.intensity = 0f;
+        lightFour.intensity = 0f;
+        lightFive.intensity = 0f;
     }
 }

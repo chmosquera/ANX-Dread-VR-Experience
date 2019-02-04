@@ -17,6 +17,8 @@ public class Puzzle : MonoBehaviour {
     public bool startPuzzle = false;
     public bool redHit = false;
 
+    private float waitRestart = 1.5f;
+
     public int[] solution = new int[] {1, 1, 0, 0, 0,
                     0, 1, 1, 1, 0,
                     0, 0, 0, 1, 0,
@@ -101,12 +103,20 @@ public class Puzzle : MonoBehaviour {
 
     public void RestartPuzzle()
     {
-        foreach (PuzzlePieces p in puzzlePieces)
+        if (waitRestart > 0)
         {
-            p.activated = false;
-            endPuzzle = false;
-            startPuzzle = false;
-            redHit = false;
+            waitRestart -= Time.deltaTime;
+        }
+        else
+        {
+            waitRestart = 1.5f;
+            foreach (PuzzlePieces p in puzzlePieces)
+            {
+                p.activated = false;
+                endPuzzle = false;
+                startPuzzle = false;
+                redHit = false;
+            }
         }
     }
 }

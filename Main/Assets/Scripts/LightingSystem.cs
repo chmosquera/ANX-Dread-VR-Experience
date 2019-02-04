@@ -16,6 +16,10 @@ public class LightingSystem : MonoBehaviour {
     public trailLightScript mid;
     public trailLightScript right1;
     public trailLightScript right2;
+
+    public trailLightScript tool; // new to guide the user to the tool
+    public Light toolLight; // new to highlight the tool
+
     public GameManager gameManager;
     public CPLightState state = CPLightState.init;
     //private bool incrScreenLight = true;
@@ -57,6 +61,9 @@ public class LightingSystem : MonoBehaviour {
                 controlRoomAreaLight.color = new Color(109f / 255f, 109f / 255f, 109f / 255f, 1f);
 
                 break;
+            // ************************
+            // need to make a state where the leading lights and tool spotlight go away after the tool is grabbed
+            // ************************
         }
 	}
 

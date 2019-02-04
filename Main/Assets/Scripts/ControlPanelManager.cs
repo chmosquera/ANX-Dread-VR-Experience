@@ -19,10 +19,11 @@ public class ControlPanelManager : MonoBehaviour {
     public LightingSystem lightSystem;
     public GameManager manager;
     public FocusSphere fadeOutSphere;
-    private static float crashCountdown = 3f;
-    private int flashCount = 0;
+    private static float crashCountdown = 5f;
+    private int flashCount = -200;
     private bool flag = false;
     private bool charSelect = false;
+
     // Use this for initialization
     void Start () {
         screen.SetActive(true);

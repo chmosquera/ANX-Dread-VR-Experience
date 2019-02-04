@@ -12,6 +12,9 @@ public class PuzzleRenderer : MonoBehaviour {
     public Material powerMat;
     public Collider touchingObj;
 
+    private float redFlash = 0.5f;
+    private int state = 0;
+
     private float pieceWidth = 0.0f;
     private float pieceHeight = 0.0f;
     public List<PuzzlePieces> puzzlePieces;
@@ -89,12 +92,46 @@ public class PuzzleRenderer : MonoBehaviour {
             else if (p.activated == true && p.value == 0)                      // activated and incorrect
             {
                 rend.material.color = Color.red;
+                //FlashRedPiece(rend);
                 puzzle.redHit = true;
             }
+            //else
+            //{
+            //    redFlash = 0.5f;
+            //}
             
 
             //p.gameObject.GetComponent<Renderer>().material = mat;
 
         }
     }
+
+    //public void FlashRedPiece(MeshRenderer rend)        // red flashing task made to make it look better when you fail the puzzle
+    //{
+    //    if (state == 0)
+    //    {
+    //        redFlash -= Time.deltaTime;
+    //        if (redFlash > 0)
+    //        {
+    //            rend.material.color = Color.red;
+    //        }
+    //        else
+    //        {
+    //            state = 1;
+    //        }
+
+    //    }
+    //    else
+    //    {
+    //        redFlash += Time.deltaTime;
+    //        if (redFlash < 0.5f)
+    //        {
+    //            rend.material.color = Color.white;
+    //        }
+    //        else
+    //        {
+    //            state = 0;
+    //        }
+    //    }
+    //}
 }

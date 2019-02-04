@@ -5,10 +5,16 @@ using UnityEngine;
 public class ControlPanelManager : MonoBehaviour {
 
     public OpenScreenScript startButton;
+    public CharSelectScript tomSelectScript;
+    public CharSelectScript zarinaSelectScript;
+    public CharSelectScript haramSelectScript;
     public GameObject screen;
     public GameObject begin;
     public GameObject character;
     public GameObject attributes;
+    public GameObject selTom;
+    public GameObject selFairy;
+    public GameObject selHaram;
     public GameState gameState;
     public LightingSystem lightSystem;
     public GameManager manager;
@@ -16,13 +22,16 @@ public class ControlPanelManager : MonoBehaviour {
     private static float crashCountdown = 3f;
     private int flashCount = 0;
     private bool flag = false;
-
+    private bool charSelect = false;
     // Use this for initialization
     void Start () {
         screen.SetActive(true);
         begin.SetActive(true);
         character.SetActive(false);
         attributes.SetActive(false);
+        selTom.SetActive(false);
+        selFairy.SetActive(false);
+        selHaram.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -37,14 +46,18 @@ public class ControlPanelManager : MonoBehaviour {
                     begin.SetActive(false);
                     character.SetActive(true);
                     attributes.SetActive(false);
-                    print("Press V to go to Attributes screen");
-                    if (Input.GetKey(KeyCode.V))
+                    selTom.SetActive(true);
+                    selFairy.SetActive(true);
+                    selHaram.SetActive(true);
+
+                    if (tomSelectScript.charSelect || zarinaSelectScript.charSelect || haramSelectScript.charSelect)
                     {
-                        begin.SetActive(false);
+                        selTom.SetActive(false);
+                        selFairy.SetActive(false);
+                        selHaram.SetActive(false);
                         character.SetActive(false);
                         attributes.SetActive(true);
-                        print("Button 'V' pressed - Attributes Image set to Active?");
-
+                        
                         manager.ChangeGameState(GameState.Crash);
                     }
              
@@ -65,7 +78,6 @@ public class ControlPanelManager : MonoBehaviour {
                 break;
         }
 	}
-
 
     private void CrashInitiate(){
         

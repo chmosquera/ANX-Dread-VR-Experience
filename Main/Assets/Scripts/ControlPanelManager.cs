@@ -19,8 +19,11 @@ public class ControlPanelManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        screen.SetActive(false);
-	}
+        screen.SetActive(true);
+        begin.SetActive(true);
+        character.SetActive(false);
+        attributes.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,32 +31,19 @@ public class ControlPanelManager : MonoBehaviour {
         {
             case GameState.Intro:
 
-                
-
                 if (startButton.screenActive) {
 
-                    screen.SetActive(true);
                     lightSystem.state = CPLightState.startButtonPressed;
-                    
-                    if (Input.GetKey(KeyCode.B)) {
-                        begin.SetActive(true);
-                        character.SetActive(false);
-                        attributes.SetActive(false);
-                        print("Button 'B' pressed - Begin Image set to Active?");
-                    }
-                    if (Input.GetKey(KeyCode.N))
-                    {
-                        begin.SetActive(false);
-                        character.SetActive(true);
-                        attributes.SetActive(false);
-                        print("Button 'N' pressed - Character Image set to Active?");
-                    }
-                    if (Input.GetKey(KeyCode.M))
+                    begin.SetActive(false);
+                    character.SetActive(true);
+                    attributes.SetActive(false);
+                    print("Press V to go to Attributes screen");
+                    if (Input.GetKey(KeyCode.V))
                     {
                         begin.SetActive(false);
                         character.SetActive(false);
                         attributes.SetActive(true);
-                        print("Button 'M' pressed - Attributes Image set to Active?");
+                        print("Button 'V' pressed - Attributes Image set to Active?");
 
                         manager.ChangeGameState(GameState.Crash);
                     }

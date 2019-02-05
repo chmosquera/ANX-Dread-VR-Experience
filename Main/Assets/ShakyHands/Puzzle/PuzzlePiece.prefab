@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0694729bd946a4845a28ca2fa42f0579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  voltage: 0
-  minV: 1
-  maxV: 5
-  pType: 1
+  value: 0
+  puzzle: {fileID: 0}
+  activated: 0
+  touchingObj: {fileID: 0}
   sType: 3

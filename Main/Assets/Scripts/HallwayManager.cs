@@ -12,7 +12,7 @@ public class HallwayManager : MonoBehaviour {
     // active - will happen at every frame
     // disable - events will happen once then goes to inactive
     public enum HallwayState {INACTIVE, ENABLE, ACTIVE, DISABLE}
-	private HallwayState localState = HallwayState.INACTIVE;
+	public HallwayState localState = HallwayState.INACTIVE;
 
     public AudioSource SpaceMusicAudioSource;
     private SpaceMusicScript spaceMusic;
@@ -32,7 +32,7 @@ public class HallwayManager : MonoBehaviour {
 
 				break;
 			case HallwayState.ENABLE:
-				spaceMusic.playMusic = true;
+                    spaceMusic.PlayMusic();
 
 				localState = HallwayState.ACTIVE;
 				break;
@@ -55,5 +55,20 @@ public class HallwayManager : MonoBehaviour {
 			
 	}
 
+    // Enables only when inactive
+    public void Enable() {
+        if (this.localState == HallwayState.INACTIVE) { 
+            this.localState = HallwayState.ENABLE;
+        }
 
+    }
+
+    // Disables only when active
+    public void Disable()
+    {
+        if (this.localState == HallwayState.ACTIVE)
+        {
+            this.localState = HallwayState.DISABLE;
+        }
+    }
 }

@@ -84,14 +84,17 @@ public class PuzzleRenderer : MonoBehaviour {
         
             if (p.activated == false) {          // not activated
                 rend.material.color = Color.white;
+                rend.material.SetColor("_EMISSION", Color.white);
             }
             else if (p.activated == true && p.value == 1)       // activated and correct
             {
                 rend.material.color = Color.green;
+                rend.material.SetColor("_EMISSION", Color.green);
             }
             else if (p.activated == true && p.value == 0)                      // activated and incorrect
             {
                 rend.material.color = Color.red;
+                rend.material.SetColor("_EMISSION", Color.red);
                 //FlashRedPiece(rend);
                 puzzle.redHit = true;
             }

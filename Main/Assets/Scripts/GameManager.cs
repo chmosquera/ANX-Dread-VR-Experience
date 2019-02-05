@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour {
         gameState = gs;
     }
 
-
+    public void EnableHallwayManager() {
+        hwManager.Enable();
+    }
 
 }

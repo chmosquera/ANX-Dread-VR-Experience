@@ -11,6 +11,22 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1274206633276058}
   m_IsPrefabAsset: 1
+--- !u!1 &1005145196809174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4811731956614780}
+  - component: {fileID: 114236484077604364}
+  m_Layer: 0
+  m_Name: HallwayManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1274206633276058
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,8 +87,22 @@ Transform:
   m_Children:
   - {fileID: 4925096555453078}
   - {fileID: 4892893735339146}
+  - {fileID: 4811731956614780}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4811731956614780
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005145196809174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4246059290415966}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4892893735339146
 Transform:
@@ -111,9 +141,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5247ae2a1b04b704797a916a53c9b7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 114243749117289698}
   gameState: 0
   door: {fileID: 0}
+  puzzle: {fileID: 0}
   alarm: {fileID: 0}
+--- !u!114 &114236484077604364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005145196809174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e41cd417bf070c4daccdcc6942886f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 114243749117289698}
+  gameState: 0
+  localState: 0
+  SpaceMusicAudioSource: {fileID: 0}
 --- !u!114 &114243749117289698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cpManager: {fileID: 114724247198057638}
   shManager: {fileID: 114029303843704490}
+  hwManager: {fileID: 114236484077604364}
   gameState: 0
 --- !u!114 &114724247198057638
 MonoBehaviour:
@@ -139,9 +187,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4643a9fc1b17a646bc837ca31ac4a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 0}
-  screen: {fileID: 0}
+  manager: {fileID: 114243749117289698}
   gameState: 0
   lightSystem: {fileID: 0}
-  manager: {fileID: 114243749117289698}
   fadeOutSphere: {fileID: 0}
+  startButton: {fileID: 0}
+  tomSelectScript: {fileID: 0}
+  zarinaSelectScript: {fileID: 0}
+  haramSelectScript: {fileID: 0}
+  screen: {fileID: 0}
+  begin: {fileID: 0}
+  character: {fileID: 0}
+  attributes: {fileID: 0}
+  selTom: {fileID: 0}
+  selFairy: {fileID: 0}
+  selHaram: {fileID: 0}
+  blackScreen: {fileID: 0}
+  systemError: {fileID: 0}
+  automaticRecovery: {fileID: 0}

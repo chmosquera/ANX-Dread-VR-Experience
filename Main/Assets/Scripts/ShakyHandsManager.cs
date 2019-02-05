@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ShakyHandsManager : MonoBehaviour {
 
+    public GameManager gameManager;
     public GameState gameState;
     public FirstDoor door;
     public Puzzle puzzle;
 
     public AlarmLight alarm;
-    public bool playMusic = false;
     
     void Start () {
         
@@ -30,12 +30,10 @@ public class ShakyHandsManager : MonoBehaviour {
             case GameState.Recover:
             
                 if (puzzle.state == PuzzleState.SOLVED) {
-                    print("opening door");
+                    gameManager.EnableHallwayManager();
                     door.state = DoorState.opening;
-                    playMusic = true;
                 } else if (puzzle.state == PuzzleState.UNSOLVED)
                 {
-                    print("breaking door");
                     door.state = DoorState.broken;
                 }
 

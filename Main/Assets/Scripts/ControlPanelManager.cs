@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class ControlPanelManager : MonoBehaviour {
 
+    // Game Manager stuff
+    public GameManager manager;
+    public GameState gameState;
+    public LightingSystem lightSystem;
+    public FocusSphere fadeOutSphere;
     public OpenScreenScript startButton;
+
+    // Control Panel Screen
     public CharSelectScript tomSelectScript;
     public CharSelectScript zarinaSelectScript;
     public CharSelectScript haramSelectScript;
@@ -15,10 +22,11 @@ public class ControlPanelManager : MonoBehaviour {
     public GameObject selTom;
     public GameObject selFairy;
     public GameObject selHaram;
-    public GameState gameState;
-    public LightingSystem lightSystem;
-    public GameManager manager;
-    public FocusSphere fadeOutSphere;
+    public GameObject blackScreen;
+    public GameObject systemError;
+    public GameObject automaticRecovery;
+
+    // Local variables
     private static float crashCountdown = 5f;
     private int flashCount = -200;
     private bool flag = false;
@@ -33,6 +41,7 @@ public class ControlPanelManager : MonoBehaviour {
         selTom.SetActive(false);
         selFairy.SetActive(false);
         selHaram.SetActive(false);
+        //blackScreen.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -40,6 +49,7 @@ public class ControlPanelManager : MonoBehaviour {
         switch (gameState)
         {
             case GameState.Intro:
+                DeactivateAllMsgs();
 
                 if (startButton.screenActive) {
 
@@ -50,6 +60,7 @@ public class ControlPanelManager : MonoBehaviour {
                     selTom.SetActive(true);
                     selFairy.SetActive(true);
                     selHaram.SetActive(true);
+                    //blackScreen.SetActive(false);
 
                     if (tomSelectScript.charSelect || zarinaSelectScript.charSelect || haramSelectScript.charSelect)
                     {
@@ -58,7 +69,8 @@ public class ControlPanelManager : MonoBehaviour {
                         selHaram.SetActive(false);
                         character.SetActive(false);
                         attributes.SetActive(true);
-                        
+                        //blackScreen.SetActive(false);
+
                         manager.ChangeGameState(GameState.Crash);
                     }
              
@@ -67,10 +79,32 @@ public class ControlPanelManager : MonoBehaviour {
 
             case GameState.Crash:
                 lightSystem.state = CPLightState.crash;
-                CrashInitiate();
+                ActivateSystemErrorMsg();
+
+                print("changing to crash scene");
+                if (crashCountdown > 0)
+                {
+                    crashCountdown -= Time.deltaTime;
+                    flashCount++;
+                    if (flashCount >= 20)
+                    {
+                        screen.SetActive(flag);
+                        flag = !flag;
+                        flashCount = 0;
+                    }
+                }
+                else
+                {
+                    screen.SetActive(false);
+                    manager.ChangeGameState(GameState.Recover);
+                    print("changing to recover scene");
+                }
 
                 break;
             case GameState.Recover:
+                DeactivateAllScreens();
+                ActivateAutomaticRecoveryMsg();
+
                 lightSystem.state = CPLightState.recover;
                 fadeOutSphere.fadeActive = true;
                 fadeOutSphere.gameObject.SetActive(false);
@@ -80,26 +114,29 @@ public class ControlPanelManager : MonoBehaviour {
         }
 	}
 
-    private void CrashInitiate(){
-        
-        print("changing to crash scene");
-        if (crashCountdown > 0)
-        {
-            crashCountdown -= Time.deltaTime;
-            flashCount++;
-            if (flashCount >= 20)
-            {
-                screen.SetActive(flag);
-                flag = !flag;
-                flashCount = 0;
-            }
-        }
-        else
-        {
-            screen.SetActive(false);
-            manager.ChangeGameState(GameState.Recover);
-            print("changing to recover scene");
-        }
+    void DeactivateAllScreens() {
+        selTom.SetActive(false);
+        selFairy.SetActive(false);
+        selHaram.SetActive(false);
+        character.SetActive(false);
+        attributes.SetActive(false);
+        //blackScreen.SetActive(true);
+    }
+
+    void ActivateSystemErrorMsg() {
+        systemError.SetActive(true);
+        automaticRecovery.SetActive(false);
+    }
+
+    void ActivateAutomaticRecoveryMsg()
+    {
+        systemError.SetActive(false);
+        automaticRecovery.SetActive(true);
+    }
+
+    void DeactivateAllMsgs() {
+        systemError.SetActive(false);
+        automaticRecovery.SetActive(false);
     }
 }
 

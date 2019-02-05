@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpaceMusicScript : MonoBehaviour {
-    public ShakyHandsManager shManager;
     public AudioSource audioSource;
     public AudioClip audioClip;
 	public bool playMusic = false;
@@ -15,8 +14,10 @@ public class SpaceMusicScript : MonoBehaviour {
 
     void Update()
     {
-		if (playMusic) {
-			audioSource.Play();
-		}
+
+    }
+
+    public void PlayMusic() {
+        audioSource.Play();
     }
 }

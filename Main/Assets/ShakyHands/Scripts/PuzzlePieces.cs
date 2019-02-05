@@ -54,9 +54,10 @@ public class PuzzlePieces : MonoBehaviour {
         if (other.gameObject.name != "Tool") return;
         if (other.gameObject.name == "[VRTK][AUTOGEN][Controller][NearTouch][CollidersContainer]") return;       // avoid this collider in the hands (bc its huge and used for something else)
         if (other.gameObject.name == "[VRTK][AUTOGEN][BodyColliderContainer]") return;                          // also avoid the body collider
+        if (sType != PieceType.START && !puzzle.startPuzzle) return;
 
-        activated = !activated;
-
+        activated = true;
+        
         if (sType == PieceType.START && activated)
         {
             puzzle.startPuzzle = true;

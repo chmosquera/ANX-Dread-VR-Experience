@@ -5,22 +5,35 @@ using UnityEngine;
 public class ControlPanelManager : MonoBehaviour {
 
     public OpenScreenScript startButton;
+    public CharSelectScript tomSelectScript;
+    public CharSelectScript zarinaSelectScript;
+    public CharSelectScript haramSelectScript;
     public GameObject screen;
     public GameObject begin;
     public GameObject character;
     public GameObject attributes;
+    public GameObject selTom;
+    public GameObject selFairy;
+    public GameObject selHaram;
     public GameState gameState;
     public LightingSystem lightSystem;
     public GameManager manager;
     public FocusSphere fadeOutSphere;
-    private static float crashCountdown = 3f;
-    private int flashCount = 0;
+    private static float crashCountdown = 5f;
+    private int flashCount = -200;
     private bool flag = false;
+    private bool charSelect = false;
 
     // Use this for initialization
     void Start () {
-        screen.SetActive(false);
-	}
+        screen.SetActive(true);
+        begin.SetActive(true);
+        character.SetActive(false);
+        attributes.SetActive(false);
+        selTom.SetActive(false);
+        selFairy.SetActive(false);
+        selHaram.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,33 +41,24 @@ public class ControlPanelManager : MonoBehaviour {
         {
             case GameState.Intro:
 
-                
-
                 if (startButton.screenActive) {
 
-                    screen.SetActive(true);
                     lightSystem.state = CPLightState.startButtonPressed;
-                    
-                    if (Input.GetKey(KeyCode.B)) {
-                        begin.SetActive(true);
-                        character.SetActive(false);
-                        attributes.SetActive(false);
-                        print("Button 'B' pressed - Begin Image set to Active?");
-                    }
-                    if (Input.GetKey(KeyCode.N))
+                    begin.SetActive(false);
+                    character.SetActive(true);
+                    attributes.SetActive(false);
+                    selTom.SetActive(true);
+                    selFairy.SetActive(true);
+                    selHaram.SetActive(true);
+
+                    if (tomSelectScript.charSelect || zarinaSelectScript.charSelect || haramSelectScript.charSelect)
                     {
-                        begin.SetActive(false);
-                        character.SetActive(true);
-                        attributes.SetActive(false);
-                        print("Button 'N' pressed - Character Image set to Active?");
-                    }
-                    if (Input.GetKey(KeyCode.M))
-                    {
-                        begin.SetActive(false);
+                        selTom.SetActive(false);
+                        selFairy.SetActive(false);
+                        selHaram.SetActive(false);
                         character.SetActive(false);
                         attributes.SetActive(true);
-                        print("Button 'M' pressed - Attributes Image set to Active?");
-
+                        
                         manager.ChangeGameState(GameState.Crash);
                     }
              
@@ -75,7 +79,6 @@ public class ControlPanelManager : MonoBehaviour {
                 break;
         }
 	}
-
 
     private void CrashInitiate(){
         

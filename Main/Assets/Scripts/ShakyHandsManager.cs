@@ -9,10 +9,10 @@ public class ShakyHandsManager : MonoBehaviour {
     public Puzzle puzzle;
 
     public AlarmLight alarm;
-
-    // Use this for initialization
+    public bool playMusic = false;
+    
     void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
@@ -28,20 +28,16 @@ public class ShakyHandsManager : MonoBehaviour {
             case GameState.Crash:
                 break;
             case GameState.Recover:
-
-//                door.InitiateBroken();
- //               print("puzzle state: " + puzzle.state);
             
                 if (puzzle.state == PuzzleState.SOLVED) {
                     print("opening door");
                     door.state = DoorState.opening;
+                    playMusic = true;
                 } else if (puzzle.state == PuzzleState.UNSOLVED)
                 {
                     print("breaking door");
                     door.state = DoorState.broken;
                 }
-                //door.state = DoorState.broken;
-                //alarm.doorState = DoorState.broken;
 
                 break;
         }

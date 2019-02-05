@@ -3,7 +3,18 @@ guid: c4643a9fc1b17a646bc837ca31ac4a5b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - startButton: {instanceID: 0}
+  - screen: {instanceID: 0}
+  - begin: {instanceID: 0}
+  - character: {instanceID: 0}
+  - attributes: {instanceID: 0}
+  - selTom: {instanceID: 0}
+  - selFairy: {instanceID: 0}
+  - selHaram: {instanceID: 0}
+  - lightSystem: {instanceID: 0}
+  - manager: {instanceID: 0}
+  - fadeOutSphere: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

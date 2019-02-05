@@ -39,9 +39,15 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+	public GameState GetGameState() {
+		return this.gameState;
+	}
+
     public void ChangeGameState(GameState gs)
     {
         gameState = gs;
     }
+
+
 
 }

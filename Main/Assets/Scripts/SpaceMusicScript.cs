@@ -6,17 +6,17 @@ public class SpaceMusicScript : MonoBehaviour {
     public ShakyHandsManager shManager;
     public AudioSource audioSource;
     public AudioClip audioClip;
+	public bool playMusic = false;
     // Use this for initialization
     void Start() {
-        audioSource.clip = audioClip;
+        //audioSource.clip = audioClip;
         //playMusic = false;
     }
 
     void Update()
     {
-        if (shManager.playMusic)
-        {
-            audioSource.Play();
-        }
+		if (playMusic) {
+			audioSource.Play();
+		}
     }
 }

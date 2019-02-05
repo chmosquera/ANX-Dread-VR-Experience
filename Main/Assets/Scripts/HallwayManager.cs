@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class HallwayManager : MonoBehaviour {
 
+	public GameManager gameManager;
+	public GameState gameState;
+
     // inactive - doesn't do anything
     // enable - events will only happen once
     // active - will happen at every frame
     // disable - events will happen once then goes to inactive
-    public enum hallwayStates {INACTIVE, ENABLE, ACTIVE, DISABLE}
-    private hallwayStates = INACTIVE;
+    public enum HallwayState {INACTIVE, ENABLE, ACTIVE, DISABLE}
+	private HallwayState localState = HallwayState.INACTIVE;
 
-    public Audio SpaceMusicAudioSource;
-    public GameState gameState;
-
+    public AudioSource SpaceMusicAudioSource;
     private SpaceMusicScript spaceMusic;
 
 	// Use this for initialization
@@ -23,16 +24,35 @@ public class HallwayManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		switch(gameState)
-        {
 
-            case GameState.Recover:
-                spaceMusic = 
-                break;
-            default:
+		if (gameState == GameState.Recover) {
 
-                break;
-        }
+			switch(localState) {
+			case HallwayState.INACTIVE:
+
+				break;
+			case HallwayState.ENABLE:
+				spaceMusic.playMusic = true;
+
+				localState = HallwayState.ACTIVE;
+				break;
+
+			case HallwayState.ACTIVE:
+
+				break;
+			case HallwayState.DISABLE:
+				// events before disabling
+				spaceMusic.playMusic = false;
+
+				localState = HallwayState.INACTIVE;
+				break;
+			default:
+
+				break;
+			}
+
+		}
+			
 	}
 
 

@@ -61,15 +61,15 @@ namespace SH
             scanAttempts++;
             if(scanAttempts == 3)
             {
-                attemptsText.text = "Attempt " + (scanAttempts-2).ToString() +" out of 3. Please lower Heart Rate to enter. Calm Down.";
+                attemptsText.text = "Attempt " + (scanAttempts-2).ToString() +" out of 3.\n Lower Heart Rate to enter.\n Calm Down.";
             }
             if (scanAttempts == 4)
             {
-                attemptsText.text = "Attempt " + (scanAttempts - 2).ToString() + " out of 3. Your Heart Rate is Too High to Enter. CALM DOWN.";
+                attemptsText.text = "Attempt " + (scanAttempts - 2).ToString() + " out of 3.\n Heart Rate is Too High to Enter.\n CALM DOWN.";
             }
             if (scanAttempts == 5)
             {
-                attemptsText.text = "Attempt " + (scanAttempts - 2).ToString()  + " out of 3. Your Heart Rate is Appropriate. Proceed through the door.";
+                attemptsText.text = "Attempt " + (scanAttempts - 2).ToString()  + " out of 3.\n Heart Rate is Appropriate.\n Proceed through the door.";
             }
             print("scan attemps: " + scanAttempts);
             if (scanAttempts >= 5)

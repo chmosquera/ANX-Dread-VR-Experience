@@ -10,7 +10,10 @@ public class GameManager : MonoBehaviour {
     public ControlPanelManager cpManager;
     public ShakyHandsManager shManager;
     public HallwayManager hwManager;
-    
+
+
+    public GameObject HUD;
+
 
     [SerializeField] private GameState gameState;
 
@@ -27,15 +30,26 @@ public class GameManager : MonoBehaviour {
 
         switch (gameState) {
             case GameState.Intro:
-                
+
                 break;
             case GameState.Crash:
-                
+
                 break;
             case GameState.Recover:
-                
+
                 break;
 
+        }
+
+        activateHUD();
+
+    }
+
+    public void activateHUD()
+    {
+        if(this.gameState != GameState.Intro) {
+            print("hi");
+            HUD.SetActive(true);
         }
     }
 

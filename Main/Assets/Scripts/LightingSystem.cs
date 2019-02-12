@@ -80,7 +80,7 @@ public class LightingSystem : MonoBehaviour {
 	}
 
     void SideScreenLights_Intro() {
-        print("side screen lights - INTRO");
+        //print("side screen lights - INTRO");
         LSideScreenLight.color = Color.white;
         RSideScreenLight.color = Color.white;
 
@@ -89,7 +89,7 @@ public class LightingSystem : MonoBehaviour {
     }
 
     void SideScreenLights_Crash() {
-        print("side screen lights - CRASH");
+        //print("side screen lights - CRASH");
         LSideScreenLight.color = Color.red;
         RSideScreenLight.color = Color.red;
 
@@ -115,7 +115,7 @@ public class LightingSystem : MonoBehaviour {
     }
 
     void SideScreenLights_Recover() {
-        print("side screen lights - RECOVER");
+        //print("side screen lights - RECOVER");
         LSideScreenLight.color = Color.green;
         RSideScreenLight.color = Color.green;
 

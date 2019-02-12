@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PuzzleState {UNSOLVED, SOLVED};
+public enum PuzzleState {INIT, UNSOLVED, SOLVED, ERROR};
 
 public class Puzzle : MonoBehaviour {
 
     public int size = 5;
-    public PuzzleState state = PuzzleState.UNSOLVED;
+    public PuzzleState state = PuzzleState.INIT;
     public List<PuzzlePieces> puzzlePieces;
 
     public PuzzlePieces pieceStart;
@@ -16,14 +16,15 @@ public class Puzzle : MonoBehaviour {
     public bool endPuzzle = false;
     public bool startPuzzle = false;
     public bool redHit = false;
+    public bool blinkStart = false;
 
     private float waitRestart = 1.5f;
 
-    public int[] solution = new int[] {1, 1, 0, 0, 0,
-                    0, 1, 1, 1, 0,
-                    0, 0, 0, 1, 0,
-                    0, 0, 0, 1, 0,
-                    0, 0, 0, 1, 1 };
+    public int[] solution = new int[]  {1, 1, 0, 0, 0,
+                                        0, 1, 1, 1, 0,
+                                        0, 0, 0, 1, 0,
+                                        0, 0, 0, 1, 0,
+                                        0, 0, 0, 1, 1 };
 
 
     // Use this for initialization
@@ -33,35 +34,54 @@ public class Puzzle : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (startPuzzle)
-        {
-            if (!redHit)
-            {
-                if (endPuzzle == true)
+        switch (state) {
+            case PuzzleState.INIT:
+                blinkStart = true;
+
+                if (startPuzzle) {
+                    state = PuzzleState.UNSOLVED;
+                    blinkStart = false;
+                }
+                break;
+            case PuzzleState.UNSOLVED:
+                if (startPuzzle)
                 {
-                    print("We are checking the solution");
-                    if (CheckSolution())
+                    if (!redHit)
                     {
-                        state = PuzzleState.SOLVED;
-                        print("solved");
+                        if (endPuzzle == true)
+                        {
+                            print("We are checking the solution");
+                            if (CheckSolution())
+                            {
+                                state = PuzzleState.SOLVED;
+                                print("solved");
+                            }
+                            else
+                            {
+                                print("unsolved");
+                                // restart puzzle
+                                RestartPuzzle();
+
+                            }
+                        }
                     }
                     else
                     {
-                        print("unsolved");
-                        // restart puzzle
-                        RestartPuzzle();
-
+                        state = PuzzleState.ERROR;
                     }
                 }
-            }
-            else
-            {
+                else
+                {
+                    RestartPuzzle();
+                }
+                break;
+
+            case PuzzleState.ERROR:
                 RestartPuzzle();
-            }
-        }
-        else
-        {
-            RestartPuzzle();
+                break;
+            case PuzzleState.SOLVED:
+                
+                break;
         }
     }
 
@@ -113,10 +133,13 @@ public class Puzzle : MonoBehaviour {
             foreach (PuzzlePieces p in puzzlePieces)
             {
                 p.activated = false;
-                endPuzzle = false;
-                startPuzzle = false;
-                redHit = false;
             }
+
+            endPuzzle = false;
+            startPuzzle = false;
+            redHit = false;
+
+            state = PuzzleState.UNSOLVED;
         }
     }
 }

@@ -28,7 +28,8 @@ public class ShakyHandsManager : MonoBehaviour {
             case GameState.Crash:
                 break;
             case GameState.Recover:
-            
+                door.InitiateBroken();
+
                 if (puzzle.state == PuzzleState.SOLVED) {
                     gameManager.EnableHallwayManager();
                     door.state = DoorState.opening;

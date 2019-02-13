@@ -25,6 +25,7 @@ public class ControlPanelManager : MonoBehaviour {
     public GameObject blackScreen;
     public GameObject systemError;
     public GameObject automaticRecovery;
+    public GameObject puzzleGame;
 
     // Local variables
     private static float crashCountdown = 5f;
@@ -73,13 +74,16 @@ public class ControlPanelManager : MonoBehaviour {
 
                         manager.ChangeGameState(GameState.Crash);
                     }
-             
+
+                    puzzleGame.SetActive(false);
+
                 } 
                 break;
 
             case GameState.Crash:
                 lightSystem.state = CPLightState.crash;
                 ActivateSystemErrorMsg();
+                puzzleGame.SetActive(true);
 
                 print("changing to crash scene");
                 if (crashCountdown > 0)
@@ -102,6 +106,7 @@ public class ControlPanelManager : MonoBehaviour {
 
                 break;
             case GameState.Recover:
+                puzzleGame.SetActive(true);
                 DeactivateAllScreens();
                 ActivateAutomaticRecoveryMsg();
 

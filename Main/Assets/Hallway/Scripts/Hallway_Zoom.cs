@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hallway_Zoom : MonoBehaviour {
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform target1;
+    [SerializeField] private Transform target2;
     [SerializeField] private Transform hallway;
     //private float initialHallwaySize;
-    private float initialDistance;
+    private float initialDistance1;
+    private float initialDistance2;
     private float lastPosition;
     private float scaleCount;
     private float xCompare;
@@ -22,7 +24,8 @@ public class Hallway_Zoom : MonoBehaviour {
     void Initialize()
     {
         // distance between target and person is initialized
-        initialDistance = target.position.z - transform.position.z;
+        initialDistance1 = target1.position.z - transform.position.z;
+        initialDistance2 = target2.position.z - transform.position.z;
         // the last position is initialized to the current position the person is at
         lastPosition = transform.position.z;
 
@@ -39,18 +42,36 @@ public class Hallway_Zoom : MonoBehaviour {
         float currentSpeed = (transform.position.z - lastPosition) / Time.deltaTime;
         // new last position
         lastPosition = transform.position.z;
-        // distance between target and person is computed
-        float currentDistance = target.position.z - transform.position.z;
+        // distance between targets and person is computed
+        float currentDistance1 = target1.position.z - transform.position.z;
+        float currentDistance2 = target2.position.z - transform.position.z;
+
         // arbitrary scalar used to make it look the best
         float zScaleBy = zScale(currentSpeed);
         float xScaleBy = xScale();
-        if (currentDistance >= 0)
+
+        if (currentDistance1 <= 0 && currentDistance2 >= 0)
         {
             hallway.localScale += new Vector3(0, 0, zScaleBy);
         }
 
-
         // alternating x size
+        wobble(xScaleBy);
+        
+    }
+
+    private float zScale(float speed)
+    {
+        return (speed) / 1100f;
+    }
+
+    private float xScale()
+    {
+        return -(2.0f) / 4000f;
+    }
+
+    private void wobble(float xScaleBy)
+    {
         if (state == 0)
         {
             hallway.localScale += new Vector3(-xScaleBy, 0, 0);
@@ -77,14 +98,6 @@ public class Hallway_Zoom : MonoBehaviour {
         }
     }
 
-    float zScale(float speed)
-    {
-        return (speed) / 800f;
-    }
 
-    float xScale()
-    {
-        return -(2.0f) / 4000f;
-    }
 }
 

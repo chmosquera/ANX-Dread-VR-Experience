@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -84,6 +85,7 @@ public class ControlPanelManager : MonoBehaviour {
                 lightSystem.state = CPLightState.crash;
                 ActivateSystemErrorMsg();
                 puzzleGame.SetActive(true);
+                GlobalCountDown.StartCountDown(TimeSpan.FromMinutes(5));
 
                 print("changing to crash scene");
                 if (crashCountdown > 0)

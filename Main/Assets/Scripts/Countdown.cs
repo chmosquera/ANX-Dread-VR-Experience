@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,6 @@ using UnityEngine.UI;
 public class Countdown : MonoBehaviour {
 
     float totalTime = 300f; //2 minutes
-    private float initializationTime = 0;
     public Text timer;
     private bool enabled = false;
 
@@ -14,14 +14,15 @@ public class Countdown : MonoBehaviour {
 
     private void Update()
     {
-            totalTime -= Time.deltaTime;
-            UpdateLevelTimer(totalTime);
+            UpdateLevelTimer();
     }
 
-    public void UpdateLevelTimer(float totalSeconds)
+    public void UpdateLevelTimer()
     {
-        int minutes = Mathf.FloorToInt(totalSeconds / 60f);
-        int seconds = Mathf.RoundToInt(totalSeconds % 60f);
+        TimeSpan timeleft = GlobalCountDown.TimeLeft;
+        float totalseconds = (float)timeleft.TotalSeconds;
+        int minutes = Mathf.FloorToInt(totalseconds / 60f);
+        int seconds = Mathf.RoundToInt(totalseconds % 60f);
 
         string formatedSeconds = seconds.ToString();
 

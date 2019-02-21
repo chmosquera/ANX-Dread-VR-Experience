@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
     public void activateHUD()
     {
         if(this.gameState != GameState.Intro) {
-            print("hi");
+        //    print("hi");
             HUD.SetActive(true);
         }
     }

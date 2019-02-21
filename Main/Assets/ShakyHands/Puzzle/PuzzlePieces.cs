@@ -50,6 +50,7 @@ public class PuzzlePieces : MonoBehaviour {
     #region Triggers
     void OnTriggerEnter(Collider other) {
         //if (other.GetComponent<PuzzlePieces>() != null) return; // don't accept collisions with each other
+        print ("piece triggered");
         if (other != touchingObj) return;
         if (other.gameObject.name != "Tool") return;
         if (other.gameObject.name == "[VRTK][AUTOGEN][Controller][NearTouch][CollidersContainer]") return;       // avoid this collider in the hands (bc its huge and used for something else)

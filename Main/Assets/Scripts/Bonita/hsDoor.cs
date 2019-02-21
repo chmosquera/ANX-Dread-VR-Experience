@@ -29,7 +29,7 @@ namespace SH
         void Update()
         {
             //print("Doorstate: " + doorstate.ToString());
-            print("scan attenpts: " + scanAttempts);
+            //print("scan attenpts: " + scanAttempts);
             switch (doorstate) {
                 case hsDoorState.opening:
                     animator.SetBool("isBroken", false);

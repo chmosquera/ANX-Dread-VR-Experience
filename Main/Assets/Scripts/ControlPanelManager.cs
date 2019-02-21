@@ -89,6 +89,7 @@ public class ControlPanelManager : MonoBehaviour {
                 if (crashCountdown > 0)
                 {
                     crashCountdown -= Time.deltaTime;
+                    print("crash countdown: " + crashCountdown);
                     flashCount++;
                     if (flashCount >= 20)
                     {

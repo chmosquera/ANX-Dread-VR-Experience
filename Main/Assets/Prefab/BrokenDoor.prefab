@@ -383,11 +383,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4105450180808760}
-  - component: {fileID: 65699055990523384}
-  - component: {fileID: 114293587142114326}
+  - component: {fileID: 898429108}
+  - component: {fileID: 898429109}
   m_Layer: 0
-  m_Name: Door
+  m_Name: SolderCircuitBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,7 +493,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 14e5822a3f4e21e4d9ef3d687fe27b01, type: 2}
+  - {fileID: 2100000, guid: aa2172e517d6af64184e05787585e194, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

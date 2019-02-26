@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum HallwayState { INACTIVE, ACTIVE, END}
+
 public class Hallway2MusicPlayer : MonoBehaviour
 {
-
+   
     public bool doorFixed = false;
     public AudioSource audioSource;
     public AudioClip snd_hallway;

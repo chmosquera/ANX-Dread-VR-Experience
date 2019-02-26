@@ -7975,6 +7975,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 0.19608502, z: 4}
   m_Center: {x: 0, y: 0.0940137, z: 0}
+--- !u!1 &740815110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1316046031132790, guid: 15cf289b8b2cfa34d8f7482ad04c010a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2302969723594683125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &740815112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740815110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0380b4011b26ba84d910f091e676afaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: d0358e3610575b947900ebcd1586b47b, type: 3}
+  audioSource: {fileID: 740815113}
+--- !u!82 &740815113 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82157185858363742, guid: 15cf289b8b2cfa34d8f7482ad04c010a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2302969723594683125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &750917954
 GameObject:
   m_ObjectHideFlags: 0
@@ -24488,6 +24514,26 @@ Transform:
   m_Father: {fileID: 1036098479}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2061744852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1894577228635193371, guid: 15cf289b8b2cfa34d8f7482ad04c010a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2302969723594683125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2061744856
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061744852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 1a1f17f76719e914bb284c62df5cc6bb, type: 3}
 --- !u!1 &2063457871
 GameObject:
   m_ObjectHideFlags: 0
@@ -26068,11 +26114,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenDoor
       objectReference: {fileID: 0}
-    - target: {fileID: 114293587142114326, guid: 15cf289b8b2cfa34d8f7482ad04c010a,
-        type: 3}
-      propertyPath: state
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4732084361048948, guid: 15cf289b8b2cfa34d8f7482ad04c010a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.38935417
@@ -26116,6 +26157,38 @@ PrefabInstance:
     - target: {fileID: 4732084361048948, guid: 15cf289b8b2cfa34d8f7482ad04c010a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 15cf289b8b2cfa34d8f7482ad04c010a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572004108865206, guid: 15cf289b8b2cfa34d8f7482ad04c010a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316046031132790, guid: 15cf289b8b2cfa34d8f7482ad04c010a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82157185858363742, guid: 15cf289b8b2cfa34d8f7482ad04c010a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6959479844350429275, guid: 15cf289b8b2cfa34d8f7482ad04c010a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.294
+      objectReference: {fileID: 0}
+    - target: {fileID: 6959479844350429275, guid: 15cf289b8b2cfa34d8f7482ad04c010a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.263
+      objectReference: {fileID: 0}
+    - target: {fileID: 6959479844350429275, guid: 15cf289b8b2cfa34d8f7482ad04c010a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.839
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15cf289b8b2cfa34d8f7482ad04c010a, type: 3}

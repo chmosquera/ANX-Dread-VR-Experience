@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HallwayManager1 : MonoBehaviour
+public class HeartbeatHallwayManager : MonoBehaviour
 {
     private State currentState;
 
@@ -22,4 +22,5 @@ public class HallwayManager1 : MonoBehaviour
         currentState = state;
         if (currentState != null) currentState.OnStateEnter();
     }
+
 }

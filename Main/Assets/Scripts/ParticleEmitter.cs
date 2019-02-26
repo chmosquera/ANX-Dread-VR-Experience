@@ -8,6 +8,7 @@ public class ParticleEmitter : MonoBehaviour
     public Air airPrefab;
     private Sparks spark = null;
     private Air airhiss = null;
+    private bool triggered = false;
     public Quaternion rotation;
 
 
@@ -27,31 +28,25 @@ public class ParticleEmitter : MonoBehaviour
     {
         print("hit particle sphere");
         print(other.gameObject.tag);
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && triggered == false)
         {
             print("hello");
+            triggered = true;
             //Player in vacinity create steam or sparks on wal around them every couple seconds now  
-            InvokeRepeating("createEffect", Random.Range(0f, 1.0f), Random.Range(2.0f, 5.0f));
-
+            InvokeRepeating("createEffect", Random.Range(0f, 1f), Random.Range(3.0f, 5.0f));
         }
     }
 
     void createEffect()
     {
-        print("yo");
         if (Random.value < .5) //make steam 
         {
             spark = Instantiate(sparkPrefab);
-            print(transform.position);
-            spark.transform.localPosition = transform.position;
-            print(spark.transform.position);
-            //spark.transform.localRotation = rotation;
+            spark.transform.localPosition = new Vector3(transform.position.x, transform.position.y, (transform.position.z -1.5f));
         }
         else {  // make air 
             airhiss = Instantiate(airPrefab);
-            airhiss.transform.localPosition = transform.position;
-            print(airhiss.transform.position);
-            //airhiss.transform.localRotation = rotation;
+            airhiss.transform.localPosition = new Vector3(transform.position.x, transform.position.y, (transform.position.z - 1.5f));
         }
     }
 

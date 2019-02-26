@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class State : MonoBehaviour
+public abstract class State
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    protected HeartbeatHallwayManager hbManager;
+
+    public abstract void Tick();
+
+    public virtual void OnStateEnter() { }
+    public virtual void OnStateExit() { }
+
+    public State(HeartbeatHallwayManager hbManager) {
+        this.hbManager = hbManager;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -7,6 +7,8 @@ public class ExitingShipState : State {
     // The base case for the constructor is evoked
     public ExitingShipState(HeartbeatHallwayManager hbManager) : base(hbManager){
         // Add more lines unique to this state's constructor
+        hbManager.audioSource.clip = hbManager.endMusic;
+        hbManager.audioSource.Play();
     }
 
     public override void Tick() {

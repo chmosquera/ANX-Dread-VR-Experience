@@ -40,10 +40,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053342500604988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75f53c1c022d6264eb7a8aa68c9871d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d07d6b81d822bd49bc7a3c3222037eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
   portName: COM4
   baudRate: 9600
-  ReadTimeout: 1000
+  ReadTimeout: 100000
   QueueLenght: 1

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ExitingShipState : State {
 
+    public bool helmetGrabbed = false;
+
     // The base case for the constructor is evoked
     public ExitingShipState(HeartbeatHallwayManager hbManager) : base(hbManager){
         // Add more lines unique to this state's constructor
@@ -12,7 +14,9 @@ public class ExitingShipState : State {
     }
 
     public override void Tick() {
-        
+        if (helmetGrabbed) {
+            hbManager.helmet.SetActive(true);
+        }
     }
 
     public override void OnStateEnter() {

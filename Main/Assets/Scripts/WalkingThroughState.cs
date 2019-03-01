@@ -12,6 +12,8 @@ public class WalkingThroughState : State {
         // Add more lines unique to this state's constructor
         hbManager.audioSource.clip = hbManager.hallwayMusic;
         hbManager.audioSource.Play();
+
+        hbManager.helmet.SetActive(false);
     }
 
     public override void Tick() {

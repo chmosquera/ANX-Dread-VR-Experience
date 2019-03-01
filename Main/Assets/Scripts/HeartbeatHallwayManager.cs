@@ -10,6 +10,9 @@ public class HeartbeatHallwayManager : MonoBehaviour
     public AudioClip endMusic;
     public AudioClip hallwayMusic;
 
+
+    public GameObject helmet;
+
     [SerializeField] private State currentState;
 
     void Start()
@@ -20,8 +23,6 @@ public class HeartbeatHallwayManager : MonoBehaviour
     void Update()
     {
         currentState.Tick();
-        
-
     }
 
     public void SetState(State state)

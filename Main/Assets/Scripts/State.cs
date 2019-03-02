@@ -6,6 +6,7 @@ public abstract class State
 {
 
     protected HeartbeatHallwayManager hbManager;
+    public string name;
 
     public abstract void Tick();
 
@@ -14,6 +15,7 @@ public abstract class State
 
     public State(HeartbeatHallwayManager hbManager) {
         this.hbManager = hbManager;
+        name =  "Default State";
     }
 
 }

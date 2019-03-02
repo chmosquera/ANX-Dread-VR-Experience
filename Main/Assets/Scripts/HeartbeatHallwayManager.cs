@@ -5,15 +5,18 @@ using SH;
 
 public class HeartbeatHallwayManager : MonoBehaviour
 {
+
     public hsDoor doorObj;
     public AudioSource audioSource;
     public AudioClip endMusic;
     public AudioClip hallwayMusic;
 
-
+    [Header("General Settings")]
     public GameObject helmet;
 
-    [SerializeField] private State currentState;
+
+    [SerializeField] private string currentStateName;
+    private State currentState;
 
     void Start()
     {
@@ -22,6 +25,8 @@ public class HeartbeatHallwayManager : MonoBehaviour
 
     void Update()
     {
+        currentStateName = currentState.name;
+
         currentState.Tick();
     }
 

@@ -9,7 +9,9 @@ public class WalkingThroughState : State {
 
     // The base case for the constructor is evoked
     public WalkingThroughState(HeartbeatHallwayManager hbManager) : base(hbManager){
-        // Add more lines unique to this state's constructor
+
+        name = "ExitingShipState";
+
         hbManager.audioSource.clip = hbManager.hallwayMusic;
         hbManager.audioSource.Play();
 

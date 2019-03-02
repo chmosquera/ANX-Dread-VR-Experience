@@ -1,22 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class ExitingShipState : State {
 
     public bool helmetGrabbed = false;
 
+    private VRTK_InteractableObject helmetInteractable;
+
     // The base case for the constructor is evoked
     public ExitingShipState(HeartbeatHallwayManager hbManager) : base(hbManager){
-        // Add more lines unique to this state's constructor
+
+        name = "ExitingShipState";
+
         hbManager.audioSource.clip = hbManager.endMusic;
         hbManager.audioSource.Play();
+
+        if ((helmetInteractable = hbManager.helmet.GetComponent<VRTK_InteractableObject>()) != null)
+            Debug.LogError("<ExitingStateShip> Trying to interact with an object that requires the component VRTK_InteractableObject");
     }
 
     public override void Tick() {
-        if (helmetGrabbed) {
-            hbManager.helmet.SetActive(true);
+        if (hbManager.helmet.GetComponent<VRTK_InteractableObject>().IsGrabbed() &&
+            hbManager.helmet.GetComponent<SpaceHelmet>().wearableObjHit == true)
+        {
+            Debug.Log("helmet can be put on");
         }
+
+
     }
 
     public override void OnStateEnter() {

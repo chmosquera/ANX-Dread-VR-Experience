@@ -11,16 +11,17 @@ public class SpaceHelmet : MonoBehaviour
 
     private VRTK_InteractableObject interactableObj;
     private bool moveToPosition = false;
+    
     // Start is called before the first frame update
     void Start()
     {
+        
         if ((interactableObj = gameObject.GetComponent<VRTK_InteractableObject>()) == null)
             Debug.LogError("<SpaceHelmet> Requires the component VRTK_InteractableObject");
     }
 
     void Update() {
-        Debug.Log ("object is grabbed: " + interactableObj.IsGrabbed());
-        
+//        Debug.Log ("object is grabbed: " + interactableObj.IsGrabbed());
 
         if (moveToPosition) {
             
@@ -35,12 +36,6 @@ public class SpaceHelmet : MonoBehaviour
         
 
         Debug.Log ("object's parent: " + gameObject.transform.parent.name);
-        
-/*
-        if (moveToPosition) {
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, snapToPosition.position, 1); 
-            moveToPosition = false;
-        } */
     }
 
     void OnTriggerEnter(Collider other) {
@@ -48,6 +43,7 @@ public class SpaceHelmet : MonoBehaviour
         if (other!=triggerByObject || interactableObj.IsGrabbed() == false) return;
         Debug.Log("helmet hit the head");
 
+        gameObject.GetComponent<StaticScale>().enabled = false;
         interactableObj.ForceStopInteracting();
         moveToPosition = true;
         

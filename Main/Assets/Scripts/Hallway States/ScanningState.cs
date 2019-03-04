@@ -13,6 +13,8 @@ public class ScanningState : State {
     public override void Tick() {
         if (!(hbManager.doorObj.doorstate == hsDoorState.locked) && !(hbManager.doorObj.doorstate == hsDoorState.scanning))
             hbManager.SetState(new ExitingShipState(hbManager));
+
+        hbManager.state = Hallway2State.ScanningState;
     }
 
     public override void OnStateEnter() {

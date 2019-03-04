@@ -5,11 +5,12 @@ using VRTK;
 
 public class SpaceHelmet : MonoBehaviour
 {
-    public Collider wearableObj;
-    public bool wearableObjHit;
-    public bool helmetGrabbed = false;
+    public Collider triggerByObject;
+
+    public Transform snapToPosition;
 
     private VRTK_InteractableObject interactableObj;
+    private bool moveToPosition = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,19 +19,39 @@ public class SpaceHelmet : MonoBehaviour
     }
 
     void Update() {
-        if (interactableObj.IsGrabbed() == true) {
-            helmetGrabbed = true;
+        Debug.Log ("object is grabbed: " + interactableObj.IsGrabbed());
+        
+
+        if (moveToPosition) {
+            
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, snapToPosition.position, 0.01f); 
+
+            if (gameObject.transform.position == snapToPosition.position) {
+                gameObject.transform.parent = snapToPosition;
+                moveToPosition = false;
+                Debug.Log("AT THE POSITION");
+            }
         }
         
+
+        Debug.Log ("object's parent: " + gameObject.transform.parent.name);
+        
+/*
+        if (moveToPosition) {
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, snapToPosition.position, 1); 
+            moveToPosition = false;
+        } */
     }
 
     void OnTriggerEnter(Collider other) {
 
-        if (other != wearableObj && helmetGrabbed == false) {
-            return;
-        }
+        if (other!=triggerByObject || interactableObj.IsGrabbed() == false) return;
+        Debug.Log("helmet hit the head");
 
-        wearableObjHit = true;
+        interactableObj.ForceStopInteracting();
+        moveToPosition = true;
+        
+    
     }
 
     void OnTriggerExit(Collider other) {

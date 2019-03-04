@@ -10,12 +10,10 @@ public class WalkingThroughState : State {
     // The base case for the constructor is evoked
     public WalkingThroughState(HeartbeatHallwayManager hbManager) : base(hbManager){
 
-        name = "ExitingShipState";
+        hbManager.state = Hallway2State.WalkingThroughState;
 
         hbManager.audioSource.clip = hbManager.hallwayMusic;
         hbManager.audioSource.Play();
-
-        hbManager.helmet.SetActive(false);
     }
 
     public override void Tick() {

@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using SH;
 
+public enum Hallway2State {WalkingThroughState, ScanningState, ExitingShipState};
+
 public class HeartbeatHallwayManager : MonoBehaviour
 {
 
+    [Header("Objects used by states")]
     public hsDoor doorObj;
     public AudioSource audioSource;
     public AudioClip endMusic;
     public AudioClip hallwayMusic;
 
     [Header("General Settings")]
-    public GameObject helmet;
+    public Hallway2State state;
 
-
-    [SerializeField] private string currentStateName;
     private State currentState;
 
     void Start()
@@ -25,8 +26,6 @@ public class HeartbeatHallwayManager : MonoBehaviour
 
     void Update()
     {
-        currentStateName = currentState.name;
-
         currentState.Tick();
     }
 

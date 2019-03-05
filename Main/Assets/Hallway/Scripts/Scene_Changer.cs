@@ -15,8 +15,8 @@ public class Scene_Changer : MonoBehaviour {
     // instantiate
     public void Start()
     {
-        target_right = Instantiate(triggerboxPrefab, new Vector3(-2.5f, 1.5f, -17.5f), Quaternion.identity);
-        target_left = Instantiate(triggerboxPrefab, new Vector3(2.5f, 1.5f, -17.5f), Quaternion.identity);
+        //target_right = Instantiate(triggerboxPrefab, new Vector3(-2.5f, 1.5f, -17.5f), Quaternion.identity);
+        //target_left = Instantiate(triggerboxPrefab, new Vector3(2.5f, 1.5f, -17.5f), Quaternion.identity);
     }
 
     public void Update()

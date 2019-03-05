@@ -14,6 +14,8 @@ public class HallwayManager : MonoBehaviour {
     public enum HallwayState {INACTIVE, ENABLE, ACTIVE, DISABLE}
 	public HallwayState localState = HallwayState.INACTIVE;
 
+    [Header("Audio Objects")]
+    public AudioSource hallwayAudioSource;
     public AudioSource SpaceMusicAudioSource;
     private SpaceMusicScript spaceMusic;
 

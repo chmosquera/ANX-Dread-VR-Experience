@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class ShakyHandsManager : MonoBehaviour {
 
+    [Header("Manager Objects")]
     public GameManager gameManager;
     public GameState gameState;
-    public FirstDoor door;
-    public Puzzle puzzle;
 
+    [Header("Door Objects")]
+    public FirstDoor door;
     public AlarmLight alarm;
+
+    [Header("Puzzle Objects")]
+    public GameObject puzzleObject;
+    public Puzzle puzzle;
     
     void Start () {
         
@@ -24,10 +29,13 @@ public class ShakyHandsManager : MonoBehaviour {
 		switch (gameState)
         {
             case GameState.Intro:
+                puzzleObject.SetActive(false);
                 break;
             case GameState.Crash:
+                puzzleObject.SetActive(true);
                 break;
             case GameState.Recover:
+                puzzleObject.SetActive(true);
                 door.InitiateBroken();
 
                 if (puzzle.state == PuzzleState.SOLVED) {

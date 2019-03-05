@@ -6,13 +6,11 @@ using UnityEngine;
 public class ControlPanelManager : MonoBehaviour {
 
     // Game Manager stuff
+    [Header("Manager Objects")]
     public GameManager manager;
     public GameState gameState;
-    public LightingSystem lightSystem;
-    public FocusSphere fadeOutSphere;
-    public OpenScreenScript startButton;
 
-    // Control Panel Screen
+    [Header("Control Panel Objects")]
     public CharSelectScript tomSelectScript;
     public CharSelectScript zarinaSelectScript;
     public CharSelectScript haramSelectScript;
@@ -26,13 +24,25 @@ public class ControlPanelManager : MonoBehaviour {
     public GameObject blackScreen;
     public GameObject systemError;
     public GameObject automaticRecovery;
-    public GameObject puzzleGame;
+
+    [Header("Audio Objects")]
+    public AudioSource controlpanelAudioSource;
+    public AudioClip crash_sound;
+    public AudioClip background_sound;
+
+    [Header("Other Objects")]
+    public LightingSystem lightSystem;
+    public FocusSphere fadeOutSphere;
+    public OpenScreenScript startButton;
+
 
     // Local variables
     private static float crashCountdown = 5f;
     private int flashCount = -200;
     private bool flag = false;
     private bool charSelect = false;
+    private bool initCrash = false;
+    private bool initRecover = false;
 
     // Use this for initialization
     void Start () {
@@ -76,15 +86,22 @@ public class ControlPanelManager : MonoBehaviour {
                         manager.ChangeGameState(GameState.Crash);
                     }
 
-                    puzzleGame.SetActive(false);
 
                 } 
                 break;
 
             case GameState.Crash:
-                lightSystem.state = CPLightState.crash;
-                ActivateSystemErrorMsg();
-                puzzleGame.SetActive(true);
+                if (initCrash == false)
+                {
+                    controlpanelAudioSource.clip = crash_sound;
+                    controlpanelAudioSource.Play();
+                    
+                    lightSystem.state = CPLightState.crash;
+                    ActivateSystemErrorMsg();
+
+                    initCrash = true;
+                }
+                
                 GlobalCountDown.StartCountDown(TimeSpan.FromMinutes(5));
 
                 print("changing to crash scene");
@@ -108,13 +125,20 @@ public class ControlPanelManager : MonoBehaviour {
 
                 break;
             case GameState.Recover:
-                puzzleGame.SetActive(true);
-                DeactivateAllScreens();
-                ActivateAutomaticRecoveryMsg();
+                if (initRecover == false)
+                {
+                    controlpanelAudioSource.clip = background_sound;
+                    controlpanelAudioSource.Play();                   
 
-                lightSystem.state = CPLightState.recover;
-                fadeOutSphere.fadeActive = true;
-                fadeOutSphere.gameObject.SetActive(false);
+                    DeactivateAllScreens();
+                    ActivateAutomaticRecoveryMsg();
+
+                    lightSystem.state = CPLightState.recover;
+                    fadeOutSphere.fadeActive = true;
+                    fadeOutSphere.gameObject.SetActive(false);
+
+                    initRecover = true;
+                }
 
 
                 break;

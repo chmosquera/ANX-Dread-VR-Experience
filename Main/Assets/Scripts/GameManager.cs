@@ -7,11 +7,12 @@ public enum GameState { Intro, Crash, Recover }
 
 public class GameManager : MonoBehaviour {
 
+    [Header("Manager Objects")]
     public ControlPanelManager cpManager;
     public ShakyHandsManager shManager;
     public HallwayManager hwManager;
 
-
+    [Header("Other Objects")]
     public GameObject HUD;
 
 

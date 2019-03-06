@@ -48,7 +48,7 @@ void loop() {
   if (pulseSensor.sawStartOfBeat()) {            // Constantly test to see if "a beat happened". 
    //Serial.println("♥  A HeartBeat Happened ! "); // If test is "true", print a message "a heartbeat happened".
    //Serial.print("BPM: ");                        // Print phrase "BPM: " 
-   Serial.println("beat");                        // Print the value inside of myBPM. 
+   Serial.println(myBPM);                        // Print the value inside of myBPM. 
   }
   else
   {

@@ -35,7 +35,7 @@ public class SpaceHelmet : MonoBehaviour
         }
         
 
-        Debug.Log ("object's parent: " + gameObject.transform.parent.name);
+        //Debug.Log ("object's parent: " + gameObject.transform.parent.name);
     }
 
     void OnTriggerEnter(Collider other) {

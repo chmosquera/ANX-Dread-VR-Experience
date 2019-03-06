@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -478195757
       objectReference: {fileID: 0}
+    - target: {fileID: 1142423669, guid: 5f859460579068f44b72f596d4a13e74, type: 3}
+      propertyPath: heartrateMonitor
+      value: 
+      objectReference: {fileID: 895251866}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f859460579068f44b72f596d4a13e74, type: 3}
 --- !u!224 &19763423 stripped
@@ -2584,7 +2588,6 @@ GameObject:
   m_Component:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
-  - component: {fileID: 534669903}
   - component: {fileID: 534669906}
   m_Layer: 0
   m_Name: Main Camera
@@ -2593,14 +2596,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &534669903
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
 --- !u!20 &534669904
 Camera:
   m_ObjectHideFlags: 0
@@ -4220,6 +4215,75 @@ Transform:
   m_Father: {fileID: 836476435}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &895251865
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1053342500604988, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_Name
+      value: wrmhlRead (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e8d28d1557415414cab0b349557b5961, type: 3}
+--- !u!114 &895251866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114925361610221660, guid: e8d28d1557415414cab0b349557b5961,
+    type: 3}
+  m_PrefabInstance: {fileID: 895251865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d07d6b81d822bd49bc7a3c3222037eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &919935967
 GameObject:
   m_ObjectHideFlags: 0

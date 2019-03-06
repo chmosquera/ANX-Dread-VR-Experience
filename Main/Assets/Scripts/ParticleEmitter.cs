@@ -28,7 +28,9 @@ public class ParticleEmitter : MonoBehaviour
     {
         print("hit particle sphere");
         print(other.gameObject.tag);
-        if (other.gameObject.CompareTag("Player") && triggered == false)
+        if ((other.gameObject.CompareTag("Player") ||
+             other.transform.parent.gameObject.CompareTag("Player") 
+            )&& triggered == false)
         {
             print("hello");
             triggered = true;

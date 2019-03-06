@@ -9,8 +9,6 @@ public class HeartBeatDisplay : MonoBehaviour {
     public Text hb;
     public wrmhlRead heartrateMonitor;
 
-
-
     private void Update()
     {
             UpdateHeartBeat();

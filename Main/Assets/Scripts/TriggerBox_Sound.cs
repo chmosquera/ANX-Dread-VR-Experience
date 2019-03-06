@@ -17,7 +17,7 @@ public class TriggerBox_Sound : MonoBehaviour
         if (objAppear != null)
         {
             objAppear.GetComponent<Renderer>().enabled = false;
-            objAppear.GetComponent<Collider>().isTrigger = false;
+            objAppear.GetComponent<Collider>().isTrigger = true;
         }
     }
 

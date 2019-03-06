@@ -14,6 +14,12 @@ public class Hallway_Zoom : MonoBehaviour {
     private float xCompare;
     private int state;
 
+    /* Chanelle's edits */
+    public float maxZAddScale = 1.0f;
+    public float minZAddScale = 0.01f;
+    public float zTotal = 700f;
+    private float t = 0;
+
 
     // Use this for initialization
     void Start ()
@@ -50,9 +56,18 @@ public class Hallway_Zoom : MonoBehaviour {
         float zScaleBy = zScale(currentSpeed);
         float xScaleBy = xScale();
 
+        /* chanelle's edits */
+        t = currentDistance1/ (currentDistance2 - currentDistance1);
+        Debug.Log("t: " + t);
+        float interpolate = (t  * zScaleBy) +
+                            ((1-t)  * zScaleBy);
+
         if (currentDistance1 <= 0 && currentDistance2 >= 0)
         {
-            hallway.localScale += new Vector3(0, 0, zScaleBy);
+            /* Chanelle's edits */
+            hallway.localScale += new Vector3(0, 0, interpolate);            
+
+            //hallway.localScale += new Vector3(0, 0, zScaleBy);
         }
 
         // alternating x size
@@ -62,7 +77,7 @@ public class Hallway_Zoom : MonoBehaviour {
 
     private float zScale(float speed)
     {
-        return (speed) / 1100f;
+        return (speed) / zTotal;
     }
 
     private float xScale()

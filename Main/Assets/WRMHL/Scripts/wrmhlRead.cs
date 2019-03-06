@@ -20,6 +20,7 @@ If you need speed and low latency take a look to wrmhlReadLatest.
 public class wrmhlRead : MonoBehaviour {
 
     public AudioSource audioSource;
+    public string heartrate;
 
 	wrmhl myDevice = new wrmhl(); // wrmhl is the bridge beetwen your computer and hardware.
 
@@ -50,7 +51,7 @@ public class wrmhlRead : MonoBehaviour {
                 myDevice.readQueue(); // myDevice.read() return the data coming from the device using thread.
             else
             {
-                print(myDevice.readQueue());
+                heartrate = myDevice.readQueue();
                 audioSource.Play();
             }
         }

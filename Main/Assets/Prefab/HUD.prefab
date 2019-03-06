@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 8011419036829444491}
   - component: {fileID: 8011419036829444490}
   - component: {fileID: 8011419036829444489}
+  - component: {fileID: 1142423669}
   m_Layer: 5
   m_Name: HUDcanvas
   m_TagString: Untagged
@@ -350,7 +351,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -681161617
+  m_SortingLayerID: -478195757
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &8011419036829444493
@@ -399,7 +400,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011419036829444480}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6e6e55413f6e19488b578c83298a1bc, type: 3}
   m_Name: 
@@ -412,7 +413,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011419036829444480}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c99aaebe29235674cb8cc74dd641133c, type: 3}
@@ -514,3 +515,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 8011419035855762478}
+--- !u!114 &1142423669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8011419036829444480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b1f609659f14f4392be06eb7f0fef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hb: {fileID: 8011419036135435030}
+  heartrateMonitor: {fileID: 0}

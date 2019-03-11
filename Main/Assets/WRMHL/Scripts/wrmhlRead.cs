@@ -32,13 +32,14 @@ public class wrmhlRead : MonoBehaviour {
 
 
 	[Tooltip("Timeout")]
-	public int ReadTimeout = 100000;
+	public int ReadTimeout = -1;
 
 	[Tooltip("QueueLenght")]
 	public int QueueLenght = 1;
 
 	void Start () {
-		myDevice.set (portName, baudRate, ReadTimeout, QueueLenght); // This method set the communication with the following vars;
+        print("HEART BEAT READY");
+        myDevice.set (portName, baudRate, ReadTimeout, QueueLenght); // This method set the communication with the following vars;
 		//                              Serial Port, Baud Rates, Read Timeout and QueueLenght.
 		myDevice.connect (); // This method open the Serial communication with the vars previously given.
 	}
@@ -53,6 +54,7 @@ public class wrmhlRead : MonoBehaviour {
             {
                 heartrate = myDevice.readQueue();
                 audioSource.Play();
+                print("beat");
             }
         }
 	}
@@ -60,4 +62,9 @@ public class wrmhlRead : MonoBehaviour {
 	void OnApplicationQuit() { // close the Thread and Serial Port
 		myDevice.close();
 	}
+
+    public void closeScene()
+    {
+        myDevice.close();
+    }
 }

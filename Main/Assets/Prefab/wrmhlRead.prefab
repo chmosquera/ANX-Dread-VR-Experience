@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 4661251581693223849}
+  heartrate: 
   portName: COM4
-  baudRate: 9600
-  ReadTimeout: 100000
+  baudRate: 115200
+  ReadTimeout: 100
   QueueLenght: 1
 --- !u!82 &4661251581693223849
 AudioSource:

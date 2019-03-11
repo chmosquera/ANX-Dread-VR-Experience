@@ -143,5 +143,5 @@ MonoBehaviour:
   doorObj: {fileID: 0}
   audioSource: {fileID: 5130077286053586862}
   endMusic: {fileID: 8300000, guid: c59ace85754474648b7c4faae712e621, type: 3}
-  hallwayMusic: {fileID: 8300000, guid: ab2e6465bf23aae479d95aa0faf9074a, type: 3}
+  hallwayMusic: {fileID: 8300000, guid: c2773221e04329b4184f659678e5cb99, type: 3}
   state: 0

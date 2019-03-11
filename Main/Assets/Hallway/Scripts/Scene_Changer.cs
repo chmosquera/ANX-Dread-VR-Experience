@@ -10,6 +10,7 @@ public class Scene_Changer : MonoBehaviour {
     public TriggerBox target_right;
     public TriggerBox target_left;
     private int levelToLoad;
+    public wrmhlRead device;
     //TriggerBox box = target.AddComponent<TriggerBox>();
 
     // instantiate
@@ -25,10 +26,12 @@ public class Scene_Changer : MonoBehaviour {
 
         if (target_right.GetTriggered())
         {
+            device.closeScene();
             FadeToLevel(1);
         }
         else if (target_left.GetTriggered())
         {
+            device.closeScene();
             FadeToLevel(2);
         }
 	}

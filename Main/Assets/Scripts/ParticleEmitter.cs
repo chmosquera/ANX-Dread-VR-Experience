@@ -26,16 +26,17 @@ public class ParticleEmitter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("hit particle sphere");
-        print(other.gameObject.tag);
+        //print("hit particle sphere");
+        //print(other.gameObject.tag);
         if ((other.gameObject.CompareTag("Player") ||
              other.transform.parent.gameObject.CompareTag("Player") 
             )&& triggered == false)
         {
-            print("hello");
+            //print("hello");
             triggered = true;
             //Player in vacinity create steam or sparks on wal around them every couple seconds now  
-            InvokeRepeating("createEffect", Random.Range(0f, 1f), Random.Range(3.0f, 5.0f));
+            //InvokeRepeating("createEffect", Random.Range(0f, 1f), Random.Range(3.0f, 5.0f));
+            createEffect();
         }
     }
 

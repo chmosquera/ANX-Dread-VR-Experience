@@ -58,7 +58,7 @@ public class Hallway_Zoom : MonoBehaviour {
 
         /* chanelle's edits */
         t = currentDistance1/ (currentDistance2 - currentDistance1);
-        Debug.Log("t: " + t);
+        //Debug.Log("t: " + t);
         float interpolate = (t  * zScaleBy) +
                             ((1-t)  * zScaleBy);
 

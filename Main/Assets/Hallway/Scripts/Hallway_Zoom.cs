@@ -15,11 +15,8 @@ public class Hallway_Zoom : MonoBehaviour {
     private int state;
 
     /* Chanelle's edits */
-    //public float zScale = 0.0000001f;
-    //public float minZAddScale = 0.01f;
     public float duration = 5.0f;
     public float startTime = 2.0f;
-    //public AudioSource audioSource;
     public AudioClip warpSound;
 
     private float t = 0;
@@ -73,7 +70,7 @@ public class Hallway_Zoom : MonoBehaviour {
             }
 
             t = (timer-startTime) / duration;
-            hallway.localScale += new Vector3(0, 0, t * 0.05f);   
+            hallway.localScale += new Vector3(0, 0, t * 0.01f);   
 
         }
 

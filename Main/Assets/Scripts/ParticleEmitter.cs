@@ -35,7 +35,8 @@ public class ParticleEmitter : MonoBehaviour
             print("hello");
             triggered = true;
             //Player in vacinity create steam or sparks on wal around them every couple seconds now  
-            InvokeRepeating("createEffect", Random.Range(0f, 1f), Random.Range(3.0f, 5.0f));
+            //InvokeRepeating("createEffect", Random.Range(0f, 1f), Random.Range(3.0f, 5.0f));
+            createEffect();
         }
     }
 

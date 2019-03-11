@@ -53,6 +53,7 @@ public class wrmhlRead : MonoBehaviour {
             {
                 heartrate = myDevice.readQueue();
                 audioSource.Play();
+                print("beat");
             }
         }
 	}

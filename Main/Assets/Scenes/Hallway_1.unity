@@ -1456,11 +1456,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d591938cb9dd294e85ffb7162a1fa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 332548739}
   triggerboxPrefab: {fileID: 0}
   target_right: {fileID: 0}
   target_left: {fileID: 0}
   device: {fileID: 0}
+  audio: {fileID: 0}
 --- !u!95 &332548739
 Animator:
   serializedVersion: 3

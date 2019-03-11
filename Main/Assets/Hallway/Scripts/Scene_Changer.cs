@@ -11,7 +11,6 @@ public class Scene_Changer : MonoBehaviour {
     public TriggerBox target_left;
     private int levelToLoad;
     public wrmhlRead device;
-    public AudioSource audio;
     //TriggerBox box = target.AddComponent<TriggerBox>();
 
     // instantiate
@@ -27,13 +26,11 @@ public class Scene_Changer : MonoBehaviour {
 
         if (target_right.GetTriggered())
         {
-            audio.Play();
             device.closeScene();
             FadeToLevel(1);
         }
         else if (target_left.GetTriggered())
         {
-            audio.Play();
             device.closeScene();
             FadeToLevel(2);
         }

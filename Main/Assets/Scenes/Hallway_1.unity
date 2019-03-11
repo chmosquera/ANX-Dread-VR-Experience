@@ -9996,6 +9996,16 @@ PrefabInstance:
       propertyPath: doorObj
       value: 
       objectReference: {fileID: 1204877936}
+    - target: {fileID: 5130077286053586863, guid: 41cbcb23b3081744ba286c69fd9bc97d,
+        type: 3}
+      propertyPath: hallwayMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: c2773221e04329b4184f659678e5cb99, type: 3}
+    - target: {fileID: 5130077286053586862, guid: 41cbcb23b3081744ba286c69fd9bc97d,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41cbcb23b3081744ba286c69fd9bc97d, type: 3}
 --- !u!1001 &4388099917700702472

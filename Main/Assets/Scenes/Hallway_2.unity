@@ -1460,6 +1460,7 @@ MonoBehaviour:
   triggerboxPrefab: {fileID: 0}
   target_right: {fileID: 0}
   target_left: {fileID: 0}
+  device: {fileID: 0}
 --- !u!95 &332548739
 Animator:
   serializedVersion: 3
@@ -4229,6 +4230,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: wrmhlRead (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114925361610221660, guid: e8d28d1557415414cab0b349557b5961,
+        type: 3}
+      propertyPath: ReadTimeout
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4272,11 +4278,6 @@ PrefabInstance:
     - target: {fileID: 4232700862553002, guid: e8d28d1557415414cab0b349557b5961, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114925361610221660, guid: e8d28d1557415414cab0b349557b5961,
-        type: 3}
-      propertyPath: ReadTimeout
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8d28d1557415414cab0b349557b5961, type: 3}
@@ -9995,6 +9996,21 @@ PrefabInstance:
       propertyPath: doorObj
       value: 
       objectReference: {fileID: 1204877936}
+    - target: {fileID: 5130077286053586863, guid: 41cbcb23b3081744ba286c69fd9bc97d,
+        type: 3}
+      propertyPath: hallwayMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: c2773221e04329b4184f659678e5cb99, type: 3}
+    - target: {fileID: 5130077286053586862, guid: 41cbcb23b3081744ba286c69fd9bc97d,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130077286053586862, guid: 41cbcb23b3081744ba286c69fd9bc97d,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41cbcb23b3081744ba286c69fd9bc97d, type: 3}
 --- !u!1001 &4388099917700702472

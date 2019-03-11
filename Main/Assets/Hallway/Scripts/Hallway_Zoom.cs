@@ -15,10 +15,16 @@ public class Hallway_Zoom : MonoBehaviour {
     private int state;
 
     /* Chanelle's edits */
-    public float maxZAddScale = 1.0f;
-    public float minZAddScale = 0.01f;
-    public float zTotal = 700f;
+    //public float zScale = 0.0000001f;
+    //public float minZAddScale = 0.01f;
+    public float duration = 5.0f;
+    public float startTime = 2.0f;
+    //public AudioSource audioSource;
+    public AudioClip warpSound;
+
     private float t = 0;
+    private float timer = 0.0f;
+    private bool beginWarp = false;
 
 
     // Use this for initialization
@@ -45,29 +51,30 @@ public class Hallway_Zoom : MonoBehaviour {
 	void Update ()
     {
         // speed is change in position over time
-        float currentSpeed = (transform.position.z - lastPosition) / Time.deltaTime;
+        //float currentSpeed = (transform.position.z - lastPosition) / Time.deltaTime;
         // new last position
-        lastPosition = transform.position.z;
+        //lastPosition = transform.position.z;
         // distance between targets and person is computed
-        float currentDistance1 = target1.position.z - transform.position.z;
-        float currentDistance2 = target2.position.z - transform.position.z;
+        //float currentDistance1 = target1.position.z - transform.position.z;
+        //float currentDistance2 = target2.position.z - transform.position.z;
 
         // arbitrary scalar used to make it look the best
-        float zScaleBy = zScale(currentSpeed);
+        //float zScaleBy = zScale(currentSpeed);
         float xScaleBy = xScale();
+        timer += Time.deltaTime;
 
-        /* chanelle's edits */
-        t = currentDistance1/ (currentDistance2 - currentDistance1);
-        //Debug.Log("t: " + t);
-        float interpolate = (t  * zScaleBy) +
-                            ((1-t)  * zScaleBy);
 
-        if (currentDistance1 <= 0 && currentDistance2 >= 0)
+        if (timer >= startTime && timer <= (startTime + duration))
         {
-            /* Chanelle's edits */
-            hallway.localScale += new Vector3(0, 0, interpolate);            
+            if (beginWarp == false){
+                AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.PlayOneShot(warpSound);
+                beginWarp = true;
+            }
 
-            //hallway.localScale += new Vector3(0, 0, zScaleBy);
+            t = (timer-startTime) / duration;
+            hallway.localScale += new Vector3(0, 0, t * 0.05f);   
+
         }
 
         // alternating x size
@@ -75,9 +82,9 @@ public class Hallway_Zoom : MonoBehaviour {
         
     }
 
-    private float zScale(float speed)
+    private float zScaleBy(float speed)
     {
-        return (speed) / zTotal;
+        return Time.deltaTime / 700f;
     }
 
     private float xScale()

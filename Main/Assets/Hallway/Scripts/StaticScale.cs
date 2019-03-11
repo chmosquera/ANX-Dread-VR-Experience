@@ -26,7 +26,7 @@ public class StaticScale : MonoBehaviour
         
         //Vector3 prev = transform.localScale;
 
-        if (transform.parent == scalingObject) {
+        if (transform.root == scalingObject) {
             transform.localScale = new Vector3(scaleRatio.x / scalingObject.localScale.x,
                                                scaleRatio.y / scalingObject.localScale.y,
                                                scaleRatio.z / scalingObject.localScale.z);

@@ -4,23 +4,36 @@ using UnityEngine;
 
 public class StaticScale : MonoBehaviour
 {
-    private Vector3 origProportion;
+    private Vector3 scaleRatio;
+    private Vector3 origScale;
     public Transform scalingObject;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        origProportion = new Vector3(transform.localScale.x / scalingObject.localScale.x,
+        origScale = transform.localScale;
+        scaleRatio = new Vector3(transform.localScale.x / scalingObject.localScale.x,
                               transform.localScale.y / scalingObject.localScale.y,
                               transform.localScale.z / scalingObject.localScale.z);
+
+                              
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = new Vector3(origProportion.x / scalingObject.localScale.x,
-                                               origProportion.y / scalingObject.localScale.y,
-                                               origProportion.z / scalingObject.localScale.z);
+        
+        //Vector3 prev = transform.localScale;
+
+        if (transform.parent == scalingObject) {
+            transform.localScale = new Vector3(scaleRatio.x / scalingObject.localScale.x,
+                                               scaleRatio.y / scalingObject.localScale.y,
+                                               scaleRatio.z / scalingObject.localScale.z);
+        } else {
+            transform.localScale = origScale;
+        }                                   
+        //print("helmet scale: " + prev + " -> " + transform.localScale + "\t hallway scale: " + scalingObject.localScale);        
+                                               
     }
 }

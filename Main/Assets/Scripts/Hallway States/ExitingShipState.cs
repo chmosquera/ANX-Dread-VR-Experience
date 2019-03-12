@@ -11,9 +11,7 @@ public class ExitingShipState : State {
         hbManager.state = Hallway2State.ExitingShipState;
 
         hbManager.audioSource.clip = hbManager.endMusic;
-        hbManager.audioSource.Play();
-
-        
+        hbManager.audioSource.Play();   
     }
 
     public override void Tick() {
@@ -24,6 +22,10 @@ public class ExitingShipState : State {
 
     public override void OnStateEnter() {
         Debug.Log("State Entered: " + "'ExitingShipState'");
+
+        // change effects of gravity
+        hbManager.playerRB.drag = 5f;
+        hbManager.playerRB.mass = 1f;
     }   
 
     public override void OnStateExit() {

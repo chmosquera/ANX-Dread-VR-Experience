@@ -16,7 +16,7 @@ public class HeartRateToFile : MonoBehaviour
         string now = DateTime.Now.ToString("hh_mm_ss");
         //print(now);
         string nameOfFile = "userStats" + location + now + ".txt";
-        file = new System.IO.StreamWriter(@"C:\Users\rdevito\Desktop\CIA\CIACapstone\CIACapstone\Main\heartRateStats\" + nameOfFile);
+        file = new System.IO.StreamWriter(@"C:\Users\cmosquer\Desktop\CIACapstone\Main\heartRateStats\" + nameOfFile);
  
     }
 

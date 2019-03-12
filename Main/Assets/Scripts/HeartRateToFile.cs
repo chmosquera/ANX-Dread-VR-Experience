@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class HeartRateToFile : MonoBehaviour
 {
@@ -15,16 +16,19 @@ public class HeartRateToFile : MonoBehaviour
     {
         string now = DateTime.Now.ToString("hh_mm_ss");
         //print(now);
+        string sourceFolder = Application.dataPath;
         string nameOfFile = "userStats" + location + now + ".txt";
-        file = new System.IO.StreamWriter(@"C:\Users\rdevito\Desktop\CIA\CIACapstone\CIACapstone\Main\heartRateStats\" + nameOfFile);
+        //file = new System.IO.StreamWriter(@"C:\Users\ckait\OneDrive - California Polytechnic State University\CIACapstone\Main\Assets\heartRateStats\" + nameOfFile);
+        //System.IO.Directory.CreateDirectory(sourceFolder + "\\heartRateStats\\" + now);
+        file = new StreamWriter(@sourceFolder + "\\heartRateStats\\" + nameOfFile);
  
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         string rate = hrMonitor.heartrate;
-        print("heelo");
+        
         //if (isNumeric(rate))
         //{
             file.WriteLine(Time.time.ToString() + "\t" + rate + "\n");

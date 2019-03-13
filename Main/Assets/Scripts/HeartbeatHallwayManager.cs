@@ -14,7 +14,6 @@ public class HeartbeatHallwayManager : MonoBehaviour
     public AudioClip endMusic;
     public AudioClip hallwayMusic;
 
-    public GameObject VRTK_SDKManager;
     public GameObject SteamVR;
     public GameObject VRSimulator;
     public Rigidbody playerRB;

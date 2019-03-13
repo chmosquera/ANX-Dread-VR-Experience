@@ -2271,6 +2271,7 @@ GameObject:
   - component: {fileID: 1910711160198739692}
   - component: {fileID: 1910711160198739693}
   - component: {fileID: 1910711160198739690}
+  - component: {fileID: 7080006524526016301}
   m_Layer: 9
   m_Name: frame_door_2
   m_TagString: Untagged
@@ -2356,6 +2357,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &7080006524526016301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910711160198739688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.0000043, y: 4.047563, z: 0.85642153}
+  m_Center: {x: -2.2740361e-14, y: 2.0237813, z: -0.0000002492509}
 --- !u!1 &1910711160256421877
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,6 +3044,7 @@ GameObject:
   - component: {fileID: 1910711161175820414}
   - component: {fileID: 1910711161175820415}
   - component: {fileID: 1910711161175820412}
+  - component: {fileID: 4014308909898482448}
   m_Layer: 9
   m_Name: frame_door_1
   m_TagString: Untagged
@@ -3116,6 +3131,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &4014308909898482448
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910711161175820410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.0000043, y: 4.047563, z: 0.85642153}
+  m_Center: {x: -0.00000004097822, y: 2.0237813, z: -0.0000002492509}
 --- !u!1 &2870548440476537146
 GameObject:
   m_ObjectHideFlags: 0

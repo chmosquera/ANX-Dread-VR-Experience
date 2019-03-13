@@ -29,6 +29,8 @@ public class SpaceHelmet : MonoBehaviour
 
             if (gameObject.transform.position == snapToPosition.position) {
                 gameObject.transform.parent = snapToPosition;
+                //gameObject.transform.rotation = snapToPosition.rotation;
+
                 moveToPosition = false;
                 Debug.Log("AT THE POSITION");
             }

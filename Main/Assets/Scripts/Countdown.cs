@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Countdown : MonoBehaviour {
 
-    float totalTime = 300f; //2 minutes
+    public float totalTime = 10f; //5 minutes
     public Text timer;
     private bool enabled = false;
 

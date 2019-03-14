@@ -16,8 +16,8 @@ public static class GlobalCountDown
         get
         {
             var result = TotalTime - (DateTime.UtcNow - TimeStarted);
-            if (result.TotalSeconds <= 0)
-                return TimeSpan.Zero;
+            //if (result.TotalSeconds <= 0)
+            //    return TimeSpan.Zero;
             return result;
         }
     }

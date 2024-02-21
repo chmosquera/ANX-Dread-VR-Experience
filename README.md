@@ -4,6 +4,8 @@ Explore ANX Dread, a virtual reality capstone project from a diverse team of stu
 
 [![Watch the video](https://img.youtube.com/vi/COWqeVOVaAA/hqdefault.jpg)](https://youtu.be/COWqeVOVaAA)
 
+_Click to watch on Youtube_
+
 ## Achievements
 
 Foundation of Digital Games (FDG) 2019: https://dl.acm.org/doi/10.1145/3337722.3341821
